@@ -1,0 +1,44 @@
+.mainBody{
+    display: flex;
+    justify-content: center;
+}
+
+.articleContainer{
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    box-shadow: 0 10px 20px 0
+    rgba(0, 0, 0, 0.1), 0 6px 6px 0
+    rgba(0, 0, 0, 0.2);
+    
+    
+}
+
+.articleBox{
+    
+    display: flex;
+    box-shadow: 0 10px 20px 0
+    rgba(0, 0, 0, 0.1), 0 6px 6px 0
+    rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    text-decoration: none;
+    padding: 20px;
+
+
+}
+
+.articleImage{
+    display: inline-block;
+    margin-right: 5px;
+    box-shadow: 0 10px 20px 0
+    rgba(0, 0, 0, 0.1), 0 6px 6px 0
+    rgba(0, 0, 0, 0.2);
+}
+
+.articleTitle{
+    text-decoration: none;
+    color: green;
+    align-self: center;
+    align-content: flex-end;
+    
+}
