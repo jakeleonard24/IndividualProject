@@ -3,6 +3,34 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
+<a target="_blank"  href="https://www.amazon.com/gp/product/B01FRE95HC/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B01FRE95HC&linkCode=as2&tag=typeoneshop-20&linkId=6f04f1e5c7852b8ba4583b84723508b5">
+                <img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=B01FRE95HC&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=typeoneshop-20" />
+                <p>TYPE 1 DIABETES Medical Alert Engraved Dog Tag</p>
+                </a>
+
+               
+
+                <a href="https://www.amazon.com/gp/product/B073S8QPR4/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B073S8QPR4&linkId=d68d77b5d4b507a248f689337a14bb9c">
+                <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=B073S8QPR4&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=typeoneshop-20"/>
+                <p>10-pack type 1 Bracelets</p>
+                </a>
+
+                <a href="https://www.amazon.com/gp/product/B073XK1452/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B073XK1452&linkId=e61ac72052ce159ddea6e7124dba6983">
+                    <img  src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=B073XK1452&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=typeoneshop-20"/>
+                    <p>Type 1 Steel and Rubber Medical Bracelet</p>
+                </a>
+
+                <a href="https://www.amazon.com/gp/product/0470178116/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0470178116&linkId=89d51c4c24f582a35f9ee4d074f2154d">
+                    <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=0470178116&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=typeoneshop-20"/>
+                    <p>Type 1 Diabetes For Dummies</p>
+                </a>
+
+
+
+
+
+
+
 ## Table of Contents
 
 - [Updating to New Releases](#updating-to-new-releases)

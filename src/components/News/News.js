@@ -20,13 +20,13 @@ class News extends Component {
     
 
     componentDidMount(){
-    axios.get('https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=type+1+diabetes&count=20&mkt=en-us',
-     {'headers': {'Ocp-Apim-Subscription-Key': BING_KEY}}).then(response => {
-        console.log(response.data)
-        this.setState({
-            articles: response.data.value
-        })
+    axios.get('http://localhost:3333/api/news').then(response => {
+            this.setState({
+                articles: response.data.value
+         })
     })
+        
+    
 
     }
 

@@ -1,0 +1,13 @@
+.productContainer{
+    display: inline-block;
+    justify-content: space-between;
+
+    
+}
+
+.amazonProduct{
+    width: 140px;
+    height: 200px;
+    margin-left: 100px;
+    
+}
