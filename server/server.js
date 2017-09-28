@@ -9,6 +9,7 @@ const express = require('express')
 , axios = require('axios')
 
 const app = express();
+app.use(bodyParser.json());
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
@@ -32,35 +33,53 @@ passport.use( new Auth0Strategy({
   }, function(accessToken, refreshToken, extraParams, profile, done) {
     const db = app.get('db');
     // databse stuff
+    
+
         db.get_user([profile.identities[0].user_id]).then( user => {
             if (user[0]) {
                 done(null, user[0])
             } else {
+                if(profile.nickname){
                 db.create_user([
                     profile.emails[0].value,
+                    profile.nickname,
                     profile.password,
-                    profile.identities[0].user_id]).then( user => {
+                    profile.identities[0].user_id])
+                    .then( user => {
                         done(null, user[0])
-                    })
+                    })}
+                    else {
+                        db.create_user([
+                            profile.emails[0].value,
+                            profile.emails[0].value,
+                            profile.password,
+                            profile.identities[0].user_id])
+                            .then( user => {
+                                done(null, user[0])
+                            })
+                    }
             }})
       }))
 
-     passport.serializeUser(function(userId, done) {
-        done(null, userId);
+     passport.serializeUser(function(user, done) {
+        
+        done(null, user);
     })
-      passport.deserializeUser( function( userId, done) {
+      passport.deserializeUser(( userId, done) => {
+        
         app.get('db').current_user([userId.id]).then(user => {
+            
                 done(null, user[0])
         })
     })
     app.get('/auth', passport.authenticate('auth0'));
     app.get('/auth/callback', passport.authenticate('auth0',{
-        successRedirect: 'http://localhost:3002/#/blog',
+        successRedirect: 'http://localhost:3001/#/blog',
         failureRedirect: '/auth'
       }))
       app.get('/auth/logout', (req,res) => {
         req.logOut();
-        res.redirect(302, 'http://localhost:3002/#/blog')
+        res.redirect(302, 'http://localhost:3001/#/blog')
     })
 
     app.get('/api/blogs', (req,res) => {
@@ -86,7 +105,8 @@ passport.use( new Auth0Strategy({
     })
 
     app.get('/api/user', (req, res)=> {
-        console.log(req.user)
+        
+        res.send(req.user)
     })
 
     

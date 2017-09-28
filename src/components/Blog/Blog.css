@@ -2,18 +2,7 @@
     height: 150px;
 }
 
-.mainBody{
-    margin-left: 10%;
-    display: flex;
-    justify-content: center;
-    width: 80%;
-    height: 400px;
-    border: 1px solid black;
-    flex-direction: column;
-    box-shadow: 0 10px 20px 0
-    rgba(0, 0, 0, 0.1), 5px 8px 8px 0
-    rgba(0, 0, 0, 0.2);
-}
+
 
 .viewAddPost{
     display: flex;
@@ -29,9 +18,13 @@
 
 .textEditor{
     height: 200px;
+    width: 400px;
     
 }
 .blogTitleInput{
+    border: 1px solid black;
+    
+    margin-top: 7px;
     margin-bottom: 7px;
 }
 
@@ -39,4 +32,72 @@
     display: flex;
     margin-top: 50px;
     justify-content: flex-end;
+}
+
+.blogPost{
+    display: flex;
+    width:80%;
+    background: lightblue;
+    box-shadow: 0 10px 20px 0
+    rgba(0, 0, 0, 0.1), 5px 8px 8px 0
+    rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+   
+
+}
+
+.modal{
+    box-shadow: 0 10px 20px 0
+    rgba(0, 0, 0, 0.1), 8px 8px 8px 8px
+    rgba(0, 0, 0, 0.2);
+}
+
+.imageBox{
+    display: flex;
+    width:100px;
+    height: 135px;
+    border: 1px solid black;
+    overflow: fixed;
+    flex-direction: column
+
+}
+
+.image{
+    height: 100px;
+    width: 100px;
+}
+
+.actualBlogText{
+    display: flex;
+    flex-direction: left;
+    
+}
+
+.blogTextBox{
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 0px;
+
+}
+ .mainbody{
+     display: flex;
+     justify-content: center;
+ }
+
+.blogsContainer{
+    width:80%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+}
+ .blogTextBox h3{
+     margin-top: 2px;
+     margin-bottom: 2px;
+ }
+ .actualBlogText p{
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
