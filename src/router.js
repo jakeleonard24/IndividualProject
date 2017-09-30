@@ -5,6 +5,7 @@ import Blog from './components/Blog/Blog';
 import Cart from './components/Shop/Cart/Cart';
 import Product from './components/Shop/Product/Product';
 import Storefront from './components/Shop/Storefront/Storefront';
+import Navbar from './components/Navbar/Navbar'
 
 
 export default (

@@ -1,0 +1,33 @@
+.navbar{
+    border: 1px solid black;
+    width: 100%;
+    height: 40px;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-end;
+	align-items: stretch;
+    align-content: stretch;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: green;
+}
+
+.logoBox{
+    border: 1px solid black;
+    margin-right: 375px;
+}
+
+.shopBox{
+
+    border: 1px solid black;
+}
+
+.aboutBox{
+    border: 1px solid black;
+}
+
+.blogBox{
+    border: 1px solid black;
+}

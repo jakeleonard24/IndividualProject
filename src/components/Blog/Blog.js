@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import theme from 'react-quill/dist/quill.snow.css'
-import './Blog.css';
+import './Blog2.css';
 import axios from 'axios';
 import Modal from 'react-modal';
 import Blogs from '../newcomponent'
+import Footer from '../Footer/Footer.js'
 
 
 const customStyles = {
@@ -116,43 +117,83 @@ class Blog extends Component {
 
        let blogs = this.state.blogs.map((blog) => {
             return(
-                <div key={blog.blogId} className='blogPost'>
-                    <div className='imageBox'>
-                        <img className='image' src={'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
-                        <p>{blog.username}</p>
-                    </div>
+                <div className='blogBoxEntire'>
+                <li key={blog.blogId}>
 
-                    <div className='blogTextBox'>
-                        <h3>{blog.title}</h3>
-                        <div className='actualBlogText'>
-                            <div dangerouslySetInnerHTML={{__html: blog.blog}}></div> 
-                        </div>
-                        
-                    </div>
+                <div className='blogUserContainer'>
+                <img className='image' src={'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
+                <p>{blog.username}</p>
                 </div>
+                    
+                <div className="blogTitle">
+                <h3>{blog.title}</h3>
+                 <p dangerouslySetInnerHTML={{__html: blog.blog}}></p> 
+                </div>
+                </li>
+                </div>
+                    
             )
         })
 
         return (
             <div>
-               <div className='header'>
-                <p>BlogPage</p>
-                <Link to="/storefront">
-                <p>Storefront</p>
-                </Link>
-                <a href={'http://localhost:3333/auth'}><button>Login / Sign Up</button></a>
-                <button onClick={this.openModal} >Add Post</button>
-                <button onClick={() => {this.hitUser()}}>Hit user</button>
-                <button onClick={() => {this.logout()}}>logout</button>
+               <div className='blogHeader'>
+                   <div className='blogHeaderContent'>
+                   <h1>Read Our Stories</h1>
+                       <h2>Share Your's</h2>
+                   </div>
+                   </div>
+               
+               
 
-               </div>
+               
 
-            <div className="mainBody">
+            {/* <div className="blogBody">
                <div className='blogsContainer'>
-                   {blogs}
-                   {/* <Blogs /> */}
+                   
+                <div className="postright">
+                  <div>{blogs}</div>
+                </div>
+
                </div>
+
+               <div className='blogContainerRight'>
+                    HELLO
+               </div>
+            </div> */}
+
+
+            <div className="blogParent">
+                <div className="blogMain">
+                    <div className='blogListContainer'>
+                        {blogs}
+                    </div>
+                    
+                    </div>
+                <div className="blogRight">
+                    <div className='blogRightUserBox'>
+                        
+                        <button onClick={this.openModal}>Add Post</button>
+                        
+                    </div>
+
+                    <div className='blogRightBox'>
+                        <a href='https://www.amazon.com/gp/product/B008A0O75G/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B008A0O75G&linkId=4c0345abccd0ff9ff3156351982e6f8c'>
+                        <img className='blogImage' src='https://images-na.ssl-images-amazon.com/images/I/71ynQcBSf9L._SX522_.jpg' />
+                        </a>
+                    </div>
+                </div>
+                
             </div>
+
+
+
+
+
+
+
+
+
                <Modal 
                     
                     isOpen={this.state.modalIsOpen}
@@ -172,23 +213,7 @@ class Blog extends Component {
                 <button className="bottomEditor" onClick={this.closeModal} onClick={this.addBlogPost}>Submit</button>
           </form> 
         </Modal>
-                
-                
-                
-                
-                {/* <div className={this.state.addPostClicked ? 'mainBody' : 'noAddPost'}>
-                    <div className={this.state.addPostClicked ? 'viewAddPost' : 'noAddPost'}>
-                        <input className='blogTitleInput' onChange={(e) => {this.setState({title:e.target.value})}} placeholder='Title of Post'/>
-                        
-                     <ReactQuill className='textEditor' theme="snow" value={this.state.blog}
-                     onChange={this.handleChange} />
-
-                     
-                    </div>
-                    <div className={this.state.addPostClicked ? 'bottomEditor' : 'noAddPost'}>
-                        <button onClick={this.handleClick}>Submit Post</button>
-                     </div> */}
-                {/* </div> */}
+                <Footer />
             </div>
         );
     }

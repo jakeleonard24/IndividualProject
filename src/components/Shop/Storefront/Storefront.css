@@ -1,19 +1,40 @@
+a:link, a:visited { color: black; text-decoration: none; font-weight: bold;} 
+a:active, a:hover { color: black; text-decoration: underline;}
+ 
 .productContainer{
-    display: inline-block;
-    justify-content: space-between;
+    background: lightblue;
+    width: 520px;
+    margin: 0 auto;
+    overflow: auto;
 
     
 }
 
-.amazonProduct{
-    width: 140px;
-    height: 200px;
-    margin-left: 100px;
-    
-}
 
-.image{
-    width: 150px;
-    height: 200px;
-
-}
+* {
+    margin: 0;
+    padding: 0;
+  }
+   
+   
+   
+  .productContainer ul {
+    list-style-type: none;
+  }
+   
+  .productContainer li img {
+    float: left;
+    margin: 10px;
+    border: 5px solid #30297C;
+   
+    -webkit-transition: box-shadow 0.5s ease;
+    -moz-transition: box-shadow 0.5s ease;
+    -o-transition: box-shadow 0.5s ease;
+    -ms-transition: box-shadow 0.5s ease;
+    transition: box-shadow 0.5s ease;
+  }
+   
+  .productContainer li img:hover {
+    -webkit-box-shadow: 0px 0px 7px rgba(255,255,255,0.9);
+    box-shadow: 0px 0px 7px rgba(255,255,255,0.9);
+  } 

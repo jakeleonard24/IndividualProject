@@ -1,22 +1,29 @@
-.header{
-    height: 150px;
-}
-
-
-
-.viewAddPost{
-    display: flex;
+ /* .blogHeader{
     width: 100%;
-    justify-content: center;
-    flex-direction: column;
-    
+    height: 170px;
+    border: 1px solid black;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
 }
 
-.noAddPost{
-    display: none;
-}
+/* .blogBody{
+    width: 100%;
+    height: 800px;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: stretch;
+    align-content: stretch;
+    border: 1px solid black;
+} */
 
-.textEditor{
+
+/* .textEditor{
     height: 200px;
     width: 400px;
     
@@ -34,17 +41,7 @@
     justify-content: flex-end;
 }
 
-.blogPost{
-    display: flex;
-    width:80%;
-    background: lightblue;
-    box-shadow: 0 10px 20px 0
-    rgba(0, 0, 0, 0.1), 5px 8px 8px 0
-    rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
-   
 
-}
 
 .modal{
     box-shadow: 0 10px 20px 0
@@ -52,52 +49,88 @@
     rgba(0, 0, 0, 0.2);
 }
 
-.imageBox{
-    display: flex;
-    width:100px;
-    height: 135px;
-    border: 1px solid black;
-    overflow: fixed;
-    flex-direction: column
 
-}
 
 .image{
     height: 100px;
     width: 100px;
-}
+} */
 
-.actualBlogText{
+
+
+/* .blogsContainer{
     display: flex;
-    flex-direction: left;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: baseline;
+	align-content: flex-start;
+    height: 1000px;
+} */
+
+/* .blogsContainer li {
+  
+} */
+
+/* .blogContainerRight{
+    border: 1px solid black;
+    width: 28%;
+    padding: 5px;
+} */
+
+/* .postright {
+    display: flex;
+    flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: baseline;
+	align-content: flex-start;
+} */
+/* 
+.blogParent {
+    display: flex;
+    flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+    align-items: baseline;
+    height: 90vh;
+
     
 }
 
-.blogTextBox{
-    width: 400px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-top: 0px;
+.blogMain {
+    height: 80vh; 
+    width: 80%;
+    border:1px solid black;
+    overflow: auto;
+    margin-right: 2vh;
+    margin-left: 3vh;
+    
+}
+
+.blogRight {
+    height: 80vh;
+    width: 20%;
+    border: 1px solid black;
 
 }
- .mainbody{
-     display: flex;
-     justify-content: center;
- }
 
-.blogsContainer{
-    width:80%;
+.blogPostParent {
     display: flex;
-    flex-direction: column;
-    margin-left: 10%;
+    flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+    align-items: baseline;
 }
- .blogTextBox h3{
-     margin-top: 2px;
-     margin-bottom: 2px;
- }
- .actualBlogText p{
-    margin-top: 2px;
-    margin-bottom: 2px;
+
+.userIcon {
+    height: 25vh;
+    width: 20vh;
+    background-color: blue;
+    float:left;
 }
+
+.blogTitle {
+
+    background-color: red;
+} */ 
