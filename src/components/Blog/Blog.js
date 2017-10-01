@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import ReactQuill from 'react-quill';
-import theme from 'react-quill/dist/quill.snow.css'
+import theme from 'react-quill/dist/quill.snow.css';
 import './Blog2.css';
 import axios from 'axios';
 import Modal from 'react-modal';
-import Blogs from '../newcomponent'
-import Footer from '../Footer/Footer.js'
+import Blogs from '../newcomponent';
+import Footer from '../Footer/Footer.js';
+import {Collapse} from 'react-collapse';
 
 
 const customStyles = {
@@ -33,7 +34,9 @@ class Blog extends Component {
             blog: '',
             date: '',
             modalIsOpen: false,
-            blogs: []
+            blogs: [],
+            isOpened: false,
+            blogOpener:[]
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleClick = this.handleClick.bind(this)
@@ -42,6 +45,8 @@ class Blog extends Component {
         this.closeModal = this.closeModal.bind(this);
         this.openModal = this.openModal.bind(this);
         this.updateTitle = this.updateTitle.bind(this);
+        this.changeHeight = this.changeHeight.bind(this)
+        
         
     }
 
@@ -49,8 +54,13 @@ class Blog extends Component {
     componentDidMount(){
         axios.get('/api/blogs').then(response => {
             this.setState({
-                blogs: response.data
+                blogs: response.data,
+                blogOpener: response.data.map((elem) =>{
+                    return false
+                })
+                
             })
+            
         })
 
         axios.get('/api/user').then(response =>{
@@ -58,7 +68,8 @@ class Blog extends Component {
             this.setState({
                 userId: response.data.id,
                 username: response.data.username,
-                email: response.data.email
+                email: response.data.email,
+                image: response.data.email
 
             })
         })
@@ -90,6 +101,15 @@ class Blog extends Component {
         })
     }
 
+    changeHeight(i){
+        console.log('change height function')
+        const booleanArray = this.state.blogOpener;
+        booleanArray[i] = !booleanArray[i]
+      this.setState({
+        blogOpener: booleanArray
+      })
+    }
+
     openModal() {
         this.setState({modalIsOpen: true});
       }
@@ -112,13 +132,27 @@ class Blog extends Component {
         })
     }
 
+    style = {
+        maxHeight: '700px',
+        backgroundColor: '#F1F1D4',
+        border: '3px solid white',
+        overflow: 'auto'
+    }
+
+    style2 = {
+        maxHeight: '250px'
+    }
+
+   
     render() {
+        console.log(customStyles)
         console.log('state', this.state)
 
-       let blogs = this.state.blogs.map((blog) => {
+       let blogs = this.state.blogs.map((blog, i) => {
             return(
-                <div className='blogBoxEntire'>
-                <li key={blog.blogId}>
+                
+                <div key={i} className='blogBoxEntire'>
+                <li onClick={()=> {this.changeHeight(i)}} style={this.state.blogOpener[i] ? this.style : this.style2} >
 
                 <div className='blogUserContainer'>
                 <img className='image' src={'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
@@ -131,7 +165,7 @@ class Blog extends Component {
                 </div>
                 </li>
                 </div>
-                    
+                 
             )
         })
 
@@ -143,24 +177,6 @@ class Blog extends Component {
                        <h2>Share Your's</h2>
                    </div>
                    </div>
-               
-               
-
-               
-
-            {/* <div className="blogBody">
-               <div className='blogsContainer'>
-                   
-                <div className="postright">
-                  <div>{blogs}</div>
-                </div>
-
-               </div>
-
-               <div className='blogContainerRight'>
-                    HELLO
-               </div>
-            </div> */}
 
 
             <div className="blogParent">
@@ -173,7 +189,17 @@ class Blog extends Component {
                 <div className="blogRight">
                     <div className='blogRightUserBox'>
                         
-                        <button onClick={this.openModal}>Add Post</button>
+                        <button className='blogRightAddPostButton' onClick={this.openModal}>Add Post</button>
+
+                        <div>
+                            <img className='image' src={this.state.image ? this.state.image : 'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
+                        </div>
+                        <div>
+                            User Name: {this.state.username}
+                            <br/>
+                            Email: {this.state.email}
+
+                        </div>
                         
                     </div>
 
@@ -187,19 +213,12 @@ class Blog extends Component {
             </div>
 
 
-
-
-
-
-
-
-
                <Modal 
                     
                     isOpen={this.state.modalIsOpen}
                     onAfterOpen={this.afterOpenModal}
                     onRequestClose={this.closeModal}
-                    style={customStyles}
+                    style={this.modalStyle}
                     contentLabel="Example Modal"
                     
                >

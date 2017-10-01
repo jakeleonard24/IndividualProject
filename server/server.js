@@ -44,6 +44,7 @@ passport.use( new Auth0Strategy({
                     profile.emails[0].value,
                     profile.nickname,
                     profile.password,
+                    profile.picture,
                     profile.identities[0].user_id])
                     .then( user => {
                         done(null, user[0])
@@ -83,7 +84,7 @@ passport.use( new Auth0Strategy({
     })
 
     app.get('/api/blogs', (req,res) => {
-        req.app.get('db').get_join().then(blogs =>{
+        req.app.get('db').get_all_blogs().then(blogs =>{
             res.status(200).send(blogs);
         }).catch((err) => {console.log(err)})
     })
