@@ -1,3 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Muli|Playfair+Display');
+
+h1 {
+    font-family: 'Muli', sans-serif;
+}
+
+h2 {
+    font-family: 'Muli', sans-serif;
+}
+
+h3 {
+    font-family: 'Muli', sans-serif;
+}
+
+p{
+    font-family: 'Playfair Display', serif;
+}
 body{
     margin: 0;
 }
@@ -10,7 +27,7 @@ body{
 }
  
 .articleContainer h3 {
-  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+  font: bold 24px;
 }
  
 .articleContainer li img {
@@ -19,43 +36,207 @@ body{
 }
  
 .articleContainer li p {
-  font: 200 12px/1.5 Georgia, Times New Roman, serif;
+  font: 200 18px;
 }
  
 .articleContainer li {
     list-style-type: none;
   padding: 10px;
   overflow: auto;
-  margin-bottom: 7px;
-  box-shadow: 0 10px 20px 0
-  rgba(0, 0, 0, 0.1), 0 6px 6px 0
-  rgba(0, 0, 0, 0.2);
+  margin-bottom: 12px;
+  border-top: 1px solid #3B72A5;
+  transition: .73s;
+  text-align: left;
+
 }
  
 .articleContainer li:hover {
-  background: #eee;
-  cursor: pointer;
+  background: #F0F8FF;
+  box-shadow: 1px 1px 1px 0
+  rgba(0, 0, 0, 0.1), 0 2px 2px 0
+  rgba(0, 0, 0, 0.2);
+  
 } 
 
 .sideArticleContainer li:hover {
-    background: #eee;
+    background: #F0F8FF;
     cursor: pointer;
+    box-shadow: 1px 1px 1px 0
+    rgba(0, 0, 0, 0.1), 0 2px 2px 0
+    rgba(0, 0, 0, 0.2);
   } 
 
+  .headArticle:hover{
+    background: #F0F8FF;
+    box-shadow: 1px 1px 1px 0
+    rgba(0, 0, 0, 0.1), 0 2px 2px 0
+    rgba(0, 0, 0, 0.2);
+  }
+
+  .newsBackground {
+    margin-top: 100px;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+  }
+  .inTheNews{
+      width: 100%;
+      padding-bottom: -10px;
+      border-top: 1px solid #3B73A5;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: flex-start;
+      align-content: space-between;
+  }
+
 .newsBody{
-    width: 100%;
-    height: 800px;
+    width: 75%;
     display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: center;
 	align-items: stretch;
     align-content: stretch;
-    border: 1px solid black;
+    
+}
+
+.newsSubBody{
+    width: 100%;
+    background: #F0F8FF;
+    height: 400px;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: space-between;
+
+}
+.newsSubContentTitle{
+    font-style: italic;
+    font-style: bold;
+    letter-spacing: 2px;
+    font-size: 32px;
+}
+
+.newsSubContentSubtitle{
+    font-size: 20px;
+}
+
+.newsBody2{
+    width: 75%;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: flex-start;
+	align-content: center;
+}
+
+.news2ArticleContainer{
+    width:65%;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: stretch;
+	align-content: center;
+}
+
+.news2Article{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+    align-content: center; 
+    border-top: 1px solid #3B73A5;
+    margin-bottom: 10px;
+    transition: .73s;
+}
+
+.news2Article:hover{
+    background: #F0F8FF;
+    box-shadow: 1px 1px 1px 0
+    rgba(0, 0, 0, 0.1), 0 2px 2px 0
+    rgba(0, 0, 0, 0.2);
+}
+
+.news2ArticleImage{
+    width: 230px;
+    height: 175px;
+    border: 1px solid gray;
+    margin-right: 8px;
+}
+
+.news2ArticleDescription{
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: flex-start;
+    align-content: center;
+    text-align: left;
+}
+
+.news2VideoContainer{
+    width:30%;
+    margin-left: 10px;
+    border-left: 1px solid #3B73A5;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: center;
+}
+
+.news2VideoBox{
+    width: 100%;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+    align-content: center;
+    margin-bottom: 5px;
+    border-top: 1px solid #3B73A5;
+    transition: .73s;
+}
+
+.news2VideoBox:hover{
+    background: #F0F8FF;
+    box-shadow: 1px 1px 1px 0
+    rgba(0, 0, 0, 0.1), 0 2px 2px 0
+    rgba(0, 0, 0, 0.2);
+}
+
+.newsSubContent{
+    width:75%;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: flex-start;
+	align-content: center;
+}
+
+.subContentTextBox{
+    margin-right: 20px;
+}
+
+.blogLinkImage{
+    width: 200px;
+    height: 200px;
 }
 
 .newsDonateContainer{
-    border: 1px solid black;
+    
     display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
@@ -75,27 +256,48 @@ body{
     
 
  .sideArticleContainer{
-    border: 1px solid black;
+    
     width: 25%;
     padding: 5px;
+    /* border-left: 1px solid #3B73A5 */
+    
         }
 
         .sideArticleContainer li {
             list-style-type: none;
           padding: 10px;
-          overflow: auto;
           margin-bottom: 7px;
-          box-shadow: 0 10px 20px 0
-          rgba(0, 0, 0, 0.1), 0 6px 6px 0
-          rgba(0, 0, 0, 0.2);
+          transition: .73s;
+          border-top: 1px solid #3B73A5
+        
         }
          
+.headArticle{
+    width: 100%;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+    align-content: center;
+    border-top: 1px solid #3B72A5;
+    transition: .73s;
+    text-align: left;
+   
+
+}
         
 .articleContainer{
-    border: 1px solid black;
+    
     display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
     width: 65%;    
     padding: 8px;
+    
     
     
 }
@@ -103,28 +305,24 @@ body{
 .articleListContainer{
     display: flex;
 	flex-direction: column;
-	flex-wrap: nowrap;
+	flex-wrap: wrap;
 	align-items: center;
     align-content: center;
-    overflow: hidden;
+    
    
 }
- .articleListContainer:hover{
-     overflow-y: scroll;
- }
+
 
 
 
 .newsHeader{
-    width: 100%;
-    height: 40vh;
-    border: 1px solid black;
+    width:75%;
     display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
 	justify-content: center;
-	align-items: center;
-	align-content: center;
+	align-items: flex-start;
+	align-content: space-between;
 }
 
 
@@ -143,5 +341,9 @@ body{
 .ad2Image{
     width:160px;
     height: 170px;
+}
+
+.mainArticleImage{
+    width:90%;
 }
 

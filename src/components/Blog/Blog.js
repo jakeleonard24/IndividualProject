@@ -155,7 +155,7 @@ class Blog extends Component {
                 <li onClick={()=> {this.changeHeight(i)}} style={this.state.blogOpener[i] ? this.style : this.style2} >
 
                 <div className='blogUserContainer'>
-                <img className='image' src={'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
+                <img className='blogImage' src={'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
                 <p>{blog.username}</p>
                 </div>
                     
@@ -189,18 +189,25 @@ class Blog extends Component {
                 <div className="blogRight">
                     <div className='blogRightUserBox'>
                         
-                        <button className='blogRightAddPostButton' onClick={this.openModal}>Add Post</button>
+                        
 
                         <div>
-                            <img className='image' src={this.state.image ? this.state.image : 'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
+                            <img className='blogRightImage' src={this.state.image ? this.state.image : 'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
                         </div>
+
+                    <div className='blogRightUserInfo'>
                         <div>
                             User Name: {this.state.username}
+                        </div>
+                        <div>
                             <br/>
                             Email: {this.state.email}
 
                         </div>
-                        
+                    </div>
+                        <div className='addPostBox'>
+                         <button className='blogRightAddPostButton' onClick={this.openModal}>Add Post</button>
+                        </div>
                     </div>
 
                     <div className='blogRightBox'>

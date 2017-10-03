@@ -90,7 +90,7 @@ passport.use( new Auth0Strategy({
     })
 
     app.get('/api/news', (req, res) => {
-        axios.get('https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=type+1+diabetes&count=30&mkt=en-us',
+        axios.get('https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=type+1+diabetes&count=3&mkt=en-us',
         {'headers': {'Ocp-Apim-Subscription-Key': process.env.BING_KEY}})
         .then(response => {
             res.send(response.data)
@@ -98,9 +98,15 @@ passport.use( new Auth0Strategy({
     })
 
     app.get('/api/news2', (req, res) => {
-        axios.get('https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=kids+with+type+1&count=20&mkt=en-us',
+        axios.get('https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=kids+with+type+1&count=5&mkt=en-us',
         {'headers': {'Ocp-Apim-Subscription-Key': process.env.BING_KEY}})
         .then(response => {
+            res.send(response.data)
+        }).catch((err) => {console.log(err)})
+    })
+
+    app.get('/api/youtube', (req, res) =>{
+        axios.get('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=type+1+diabetes&key=' + process.env.API_KEY).then(response => {
             res.send(response.data)
         }).catch((err) => {console.log(err)})
     })
