@@ -216,6 +216,11 @@ body{
     rgba(0, 0, 0, 0.2);
 }
 
+.news2VideoBoxImage{
+    width: 80%;
+    margin-top: 5px;
+}
+
 .newsSubContent{
     width:75%;
   display: flex;
@@ -259,7 +264,7 @@ body{
     
     width: 25%;
     padding: 5px;
-    /* border-left: 1px solid #3B73A5 */
+    border-left: 1px solid #3B73A5
     
         }
 
@@ -333,9 +338,13 @@ body{
     background: purple;
 }
 
+.sideNewsImage{
+    width:40%;
+
+}
+
 .newsImage{
-    width:100px;
-    height: 100px;
+    width:20%;
 }
 
 .ad2Image{

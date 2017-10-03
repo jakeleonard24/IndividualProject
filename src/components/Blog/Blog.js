@@ -172,10 +172,7 @@ class Blog extends Component {
         return (
             <div>
                <div className='blogHeader'>
-                   <div className='blogHeaderContent'>
-                   <h1>Read Our Stories</h1>
-                       <h2>Share Your's</h2>
-                   </div>
+                  <img className='blogHeaderImage' src='http://www.iddad.org/wp-content/uploads/2016/07/Submit-Your-Story-Header.png'/>
                    </div>
 
 

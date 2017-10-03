@@ -1,22 +1,23 @@
 .navbar{
     border: 1px solid black;
     width: 100%;
-    height: 40px;
-    display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: flex-end;
-	align-items: stretch;
-    align-content: stretch;
+    height: 10vh;
     top: 0;
     left: 0;
     position: fixed;
-    background: green;
+    background: #17A8E1;
 }
 
 .logoBox{
     border: 1px solid black;
-    margin-right: 375px;
+    width: 10%;
+    height: 100%;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
 }
 
 .shopBox{
@@ -30,4 +31,14 @@
 
 .blogBox{
     border: 1px solid black;
+}
+
+.navLinks{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-end;
+	align-items: center;
+	align-content: center;
+
 }

@@ -62,7 +62,7 @@ class News extends Component {
                     <li>
                      <a href={article.url} >
                          <div>
-                        <img className='newsImage'src={article.image.thumbnail.contentUrl} />
+                        <img className='sideNewsImage'src={article.image.thumbnail.contentUrl} />
                         </div>
                         <h4>{article.name}</h4>
                         {/* <p>{article.description}</p> */}
@@ -74,7 +74,7 @@ class News extends Component {
 
         var articles = this.state.articles.filter((article, i) =>
     {
-        if(i !== 0){
+        if(i !== 2 && i !== 1){
             return article
         }
     })
@@ -105,13 +105,16 @@ class News extends Component {
         .map((video, i) => {
             return(
                 <div className='news2VideoBox'>
+                    <a href={'https://www.youtube.com/watch?v=' + video.id.videoId}>
                     <div>
-                        <img src={video.snippet.thumbnails.medium.url} />
+                        <img className='news2VideoBoxImage' src={video.snippet.thumbnails.medium.url} />
                     </div>
-
+                    </a>
+                    <a href={'https://www.youtube.com/watch?v=' + video.id.videoId}>
                     <div>
                         <h3>{video.snippet.title}</h3>
                     </div>
+                    </a>
                 </div>
             )
         })

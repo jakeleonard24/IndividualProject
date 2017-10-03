@@ -1,13 +1,19 @@
 .blogHeader{
     width: 100%;
-    height: 40vh;
+    height: 30vh;
     border: 1px solid black;
     display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
 	justify-content: center;
 	align-items: center;
-	align-content: center;
+    align-content: center;
+    margin-top: 10%;
+  
+}
+
+.blogHeaderImage{
+    width: 100%;
 }
 
 .blogParent{
