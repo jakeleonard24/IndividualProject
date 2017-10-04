@@ -75,16 +75,22 @@ passport.use( new Auth0Strategy({
     })
     app.get('/auth', passport.authenticate('auth0'));
     app.get('/auth/callback', passport.authenticate('auth0',{
-        successRedirect: 'http://localhost:3001/#/blog',
+        successRedirect: 'http://localhost:3000/#/blog',
         failureRedirect: '/auth'
       }))
       app.get('/auth/logout', (req,res) => {
         req.logOut();
-        res.redirect(302, 'http://localhost:3001/#/blog')
+        res.redirect(302, 'http://localhost:3000/#/blog')
     })
 
     app.get('/api/blogs', (req,res) => {
         req.app.get('db').get_all_blogs().then(blogs =>{
+            res.status(200).send(blogs);
+        }).catch((err) => {console.log(err)})
+    })
+
+    app.get('/api/myblogs', (req,res) => {
+        req.app.get('db').get_join().then(blogs =>{
             res.status(200).send(blogs);
         }).catch((err) => {console.log(err)})
     })
@@ -112,8 +118,8 @@ passport.use( new Auth0Strategy({
     })
 
     app.post('/api/newblog', (req, res) => {
-        let {userId, title, blog, date} = req.body;
-        req.app.get('db').add_blog([userId, title, blog, date]).then(blogs => {
+        let {userId, title, blog, date, image, username} = req.body;
+        req.app.get('db').add_blog([userId, title, blog, date, image, username]).then(blogs => {
             res.status(200).json(req.body)
         })
         

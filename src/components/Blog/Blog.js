@@ -7,7 +7,7 @@ import axios from 'axios';
 import Modal from 'react-modal';
 import Blogs from '../newcomponent';
 import Footer from '../Footer/Footer.js';
-import {Collapse} from 'react-collapse';
+
 
 
 const customStyles = {
@@ -46,6 +46,8 @@ class Blog extends Component {
         this.openModal = this.openModal.bind(this);
         this.updateTitle = this.updateTitle.bind(this);
         this.changeHeight = this.changeHeight.bind(this)
+        this.setDate = this.setDate.bind(this)
+        this.getUserBlogs = this.getUserBlogs.bind(this);
         
         
     }
@@ -69,12 +71,24 @@ class Blog extends Component {
                 userId: response.data.id,
                 username: response.data.username,
                 email: response.data.email,
-                image: response.data.email
+                image: response.data.image
 
             })
         })
     }
 
+    getUserBlogs(){
+        axios.get('/api/myblogs').then(response => {
+            this.setState({
+                blogs: response.data,
+                blogOpener: response.data.map((elem) =>{
+                    return false
+                })
+                
+            })
+            
+        })
+    }
    
 
     logout(){
@@ -110,6 +124,12 @@ class Blog extends Component {
       })
     }
 
+    setDate(){
+        this.setState({
+            date: new Date()
+        })
+    }
+
     openModal() {
         this.setState({modalIsOpen: true});
       }
@@ -128,19 +148,21 @@ class Blog extends Component {
             userId: this.state.userId,
             title: this.state.title,
             blog: this.state.blog,
-            date: this.state.date
+            date: this.state.date,
+            image: this.state.image,
+            username: this.state.username
         })
     }
 
     style = {
-        maxHeight: '700px',
-        backgroundColor: '#F1F1D4',
+        maxHeight: '1500px',
+        backgroundColor: '#F0F8FF',
         border: '3px solid white',
         overflow: 'auto'
     }
 
     style2 = {
-        maxHeight: '250px'
+        maxHeight: '400px'
     }
 
    
@@ -155,7 +177,7 @@ class Blog extends Component {
                 <li onClick={()=> {this.changeHeight(i)}} style={this.state.blogOpener[i] ? this.style : this.style2} >
 
                 <div className='blogUserContainer'>
-                <img className='blogImage' src={'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
+                <img className='blogImage' src={blog.image ? blog.image : 'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
                 <p>{blog.username}</p>
                 </div>
                     
@@ -175,7 +197,7 @@ class Blog extends Component {
                   <img className='blogHeaderImage' src='http://www.iddad.org/wp-content/uploads/2016/07/Submit-Your-Story-Header.png'/>
                    </div>
 
-
+            <div className='blogBody'>
             <div className="blogParent">
                 <div className="blogMain">
                     <div className='blogListContainer'>
@@ -204,25 +226,27 @@ class Blog extends Component {
                     </div>
                         <div className='addPostBox'>
                          <button className='blogRightAddPostButton' onClick={this.openModal}>Add Post</button>
+                        
+                        <div>
+                            <button onClick={this.getUserBlogs} className='blogRightAddPostButton'>My Posts</button>
+                        </div>
                         </div>
                     </div>
 
                     <div className='blogRightBox'>
-                        <a href='https://www.amazon.com/gp/product/B008A0O75G/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B008A0O75G&linkId=4c0345abccd0ff9ff3156351982e6f8c'>
-                        <img className='blogImage' src='https://images-na.ssl-images-amazon.com/images/I/71ynQcBSf9L._SX522_.jpg' />
-                        </a>
+                       
                     </div>
                 </div>
                 
             </div>
-
+            </div>
 
                <Modal 
                     
                     isOpen={this.state.modalIsOpen}
                     onAfterOpen={this.afterOpenModal}
                     onRequestClose={this.closeModal}
-                    style={this.modalStyle}
+                    style={customStyles}
                     contentLabel="Example Modal"
                     
                >
@@ -233,7 +257,7 @@ class Blog extends Component {
             <ReactQuill className='textEditor' theme="snow" value={this.state.blog}
                      onChange={this.handleChange} />
               
-                <button className="bottomEditor" onClick={this.closeModal} onClick={this.addBlogPost}>Submit</button>
+                <button className="bottomEditor" onClick={this.closeModal} onClick={this.setDate} onClick={this.addBlogPost}>Submit</button>
           </form> 
         </Modal>
                 <Footer />
