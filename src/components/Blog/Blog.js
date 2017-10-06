@@ -36,7 +36,10 @@ class Blog extends Component {
             modalIsOpen: false,
             blogs: [],
             isOpened: false,
-            blogOpener:[]
+            blogOpener:[],
+            blogId: 0,
+            comment: '',
+            comments: []
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleClick = this.handleClick.bind(this)
@@ -48,6 +51,8 @@ class Blog extends Component {
         this.changeHeight = this.changeHeight.bind(this)
         this.setDate = this.setDate.bind(this)
         this.getUserBlogs = this.getUserBlogs.bind(this);
+        this.addComment = this.addComment.bind(this);
+        this.updateComment = this.updateComment.bind(this);
         
         
     }
@@ -73,6 +78,13 @@ class Blog extends Component {
                 email: response.data.email,
                 image: response.data.image
 
+            })
+        })
+
+        axios.get('/api/comments').then(response => {
+            console.log('comments', response)
+            this.setState({
+                comments: response.data
             })
         })
     }
@@ -115,6 +127,12 @@ class Blog extends Component {
         })
     }
 
+    updateComment(value){
+        this.setState({
+            comment: value
+        })
+    }
+
     changeHeight(i){
         console.log('change height function')
         const booleanArray = this.state.blogOpener;
@@ -131,7 +149,9 @@ class Blog extends Component {
     }
 
     openModal() {
-        this.setState({modalIsOpen: true});
+        
+            this.setState({modalIsOpen: true});
+        
       }
 
     afterOpenModal() {
@@ -154,6 +174,20 @@ class Blog extends Component {
         })
     }
 
+    addComment(){
+        if(this.state.comment.length > 0){
+        axios.post('/api/newcomment', {
+            username: this.state.username,
+            email: this.state.email,
+            blogId: this.state.blogId,
+            comment: this.state.comment,
+            image: this.state.image
+        })
+
+    }
+    this.updateComment('')
+    }
+
     style = {
         maxHeight: '1500px',
         backgroundColor: '#F0F8FF',
@@ -165,28 +199,68 @@ class Blog extends Component {
         maxHeight: '400px'
     }
 
+    commentStyle1= {
+        display: 'flex'
+    }
+
+    commentStyle2 = {
+        display: 'none'
+    }
+
+
    
     render() {
-        console.log(customStyles)
+        
         console.log('state', this.state)
+
+        let comments = this.state.comments.map((comment, i) => {
+            return(
+                <div>
+                    <h3>{comment.username ? comment.username : "Guest"}</h3>
+                    <p>{comment.comment}</p>
+                </div>
+            )
+        })
 
        let blogs = this.state.blogs.map((blog, i) => {
             return(
                 
-                <div key={i} className='blogBoxEntire'>
-                <li onClick={()=> {this.changeHeight(i)}} style={this.state.blogOpener[i] ? this.style : this.style2} >
+                
+                <div key={i} className='blogAllContent'>
+                    <li onClick={()=> {this.changeHeight(i)}} style={this.state.blogOpener[i] ? this.style : this.style2} >
 
-                <div className='blogUserContainer'>
-                <img className='blogImage' src={blog.image ? blog.image : 'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
-                <p>{blog.username}</p>
-                </div>
+                         <div className='blogUserContainer'>
+                              <img className='blogImage' src={blog.image ? blog.image : 'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
+                        <p>{blog.username}</p>
+                             </div>
                     
-                <div className="blogTitle">
-                <h3>{blog.title}</h3>
-                 <p dangerouslySetInnerHTML={{__html: blog.blog}}></p> 
+                              <div className="blogTitle">
+                         <h3>{blog.title}</h3>
+                      <p dangerouslySetInnerHTML={{__html: blog.blog}}></p> 
+                    </div>
+                    </li>
+
+                <div style={this.state.blogOpener[i] ? this.commentStyle1 : this.commentStyle2} className='commentSection'>
+                    {this.state.comments.map((comment, i) => {
+                        if(comment.blognumber === blog.blogid){
+                            return(
+                                <div className="userComment">
+                                <img className='blogImage' src={comment.image ? comment.image : 'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
+                                    <h3 className='commentUsername'>{comment.username ? comment.username + ': ' : "Guest: "}</h3>
+                                   
+                                    <p>{' ' + comment.comment}</p>
+                                    
+                                </div>
+                            )
+                        }
+                    })}
+                     <div className='addCommentBox'>
+                            <input value={this.state.comment} onClick={()=>{this.setState({blogId: blog.blogid})}} onChange={(e) => {this.updateComment(e.target.value)}} className='commentInput' placeholder='Write a comment'/>
+                            <button onClick={this.addComment}>Add Comment</button>
+                     </div>
+                 </div>
                 </div>
-                </li>
-                </div>
+              
                  
             )
         })

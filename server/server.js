@@ -89,6 +89,12 @@ passport.use( new Auth0Strategy({
         }).catch((err) => {console.log(err)})
     })
 
+    app.get('/api/comments', (req, res) => {
+        req.app.get('db').get_all_comments().then(comments => {
+            res.status(200).send(comments)
+        }).catch((err) => {console.log})
+    })
+
     app.get('/api/myblogs', (req,res) => {
         req.app.get('db').get_join().then(blogs =>{
             res.status(200).send(blogs);
@@ -124,6 +130,14 @@ passport.use( new Auth0Strategy({
         })
         
     })
+
+    app.post('/api/newcomment', (req,res) => {
+        let{username, email, blogId, comment, image} = req.body;
+        req.app.get('db').add_comment([username, email, blogId, comment, image]).then(comments => {
+            res.status(200).json(req.body)
+        })
+    })
+
 
     app.get('/api/user', (req, res)=> {
         
