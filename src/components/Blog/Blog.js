@@ -190,8 +190,8 @@ class Blog extends Component {
 
     style = {
         maxHeight: '1500px',
-        backgroundColor: '#F0F8FF',
-        border: '3px solid white',
+        backgroundColor: '#FFFFFF',
+        border: '3px solid #F5F3EE',
         overflow: 'auto'
     }
 
@@ -204,7 +204,8 @@ class Blog extends Component {
     }
 
     commentStyle2 = {
-        display: 'none'
+        display: 'none',
+        backgroundColor: '#F5F3EE'
     }
 
 
@@ -255,8 +256,8 @@ class Blog extends Component {
                         }
                     })}
                      <div className='addCommentBox'>
-                            <input value={this.state.comment} onClick={()=>{this.setState({blogId: blog.blogid})}} onChange={(e) => {this.updateComment(e.target.value)}} className='commentInput' placeholder='Write a comment'/>
-                            <button onClick={this.addComment}>Add Comment</button>
+                            <textarea value={this.state.comment} onClick={()=>{this.setState({blogId: blog.blogid})}} onChange={(e) => {this.updateComment(e.target.value)}} className='commentInput' placeholder='Write a comment'/>
+                            <button className='addCommentButton' onClick={this.addComment}>Add Comment</button>
                      </div>
                  </div>
                 </div>
@@ -266,7 +267,7 @@ class Blog extends Component {
         })
 
         return (
-            <div>
+            <div className='blogBackground'>
                <div className='blogHeader'>
                   <img className='blogHeaderImage' src='http://www.iddad.org/wp-content/uploads/2016/07/Submit-Your-Story-Header.png'/>
                    </div>

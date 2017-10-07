@@ -59,12 +59,14 @@ class News extends Component {
         }).map((article, i) => {
             return(
                 <div key={i}>
-                    <li>
-                     <a href={article.url} >
-                         <div>
+                    <li >
+                     <a href={article.url} className='sideNewsArticleBox'>
+                         
                         <img className='sideNewsImage'src={article.image.thumbnail.contentUrl} />
-                        </div>
-                        <h4>{article.name}</h4>
+                        
+                        
+                        <h3>{article.name}</h3>
+                        
                         {/* <p>{article.description}</p> */}
                      </a>
                     </li>
@@ -74,7 +76,7 @@ class News extends Component {
 
         var articles = this.state.articles.filter((article, i) =>
     {
-        if(i !== 2 && i !== 1){
+        if(i !== 10){
             return article
         }
     })
@@ -88,7 +90,7 @@ class News extends Component {
                          <div>
                         <img className='newsImage'src={value.image ? value.image.thumbnail.contentUrl : 'http://in5d.com/wp-content/uploads/2014/12/in5d-news.jpg'} />
                         </div>
-                        <h4>{value.name}</h4>
+                        <h3>{value.name}</h3>
                         <p>{value.description}</p>
                      </a>
                     </li>
@@ -120,7 +122,7 @@ class News extends Component {
         })
         
         return (
-            <div>
+            <div className='newsBody'>
                
                
                 <div className='newsBackground'>
@@ -130,7 +132,7 @@ class News extends Component {
                    </div>
                   
                </div>
-                    <div className='newsBody'>
+                    <div className='newsBodyContainer'>
                         <div className='newsLeftColumn'>
                         <div className='newsDonateContainer'>
                            <a href='http://stepout.diabetes.org/site/PageServer?pagename=OUT_fw_spreadword'> <img src='http://stepout.diabetes.org/out11/so2011_160x600.gif'/>
@@ -143,7 +145,7 @@ class News extends Component {
                         <div className='articleContainer'>
                             <a href='http://www.kmov.com/story/36495454/jdrf-walk-raises-half-a-million-to-cure-type-1-diabetes'>
                             <div className='headArticle'>
-                                <div >
+                                <div className='mainArticleImageBox'>
                                   <img  className='mainArticleImage'src='http://kmov.images.worldnow.com/images/15051078_G.jpg'/>
 
                                 </div>

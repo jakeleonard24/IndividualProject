@@ -16,12 +16,12 @@ class Storefront extends Component {
     render() {
        
         return (
-            <div>
+            <div className='storeBody'>
                <div className='storeHeader'>
                    <div className='storeHeaderContent'>
-                    <h1>Wear It</h1>
+                    <h1 className='storeHeaderText'>WEAR IT</h1>
                     <br/>
-                    <h1>Own It</h1>
+                    <h1 className='storeHeaderText'>OWN IT</h1>
                    </div>
 
                </div>
@@ -98,12 +98,60 @@ class Storefront extends Component {
                     <a href='http://amzn.to/2fPtvq6'>
                    <p className='viewButton'>View</p>
                    </a>
-                    <p>$9.99</p>
+                    <p>$36.99 </p>
+                    </div>
+                    </div>
+
+                    <div className='productBox'>
+                    <a href='http://amzn.to/2yOSw95'>
+                    <img className='productImage' src='https://images-na.ssl-images-amazon.com/images/I/815WNP%2BbdlL._UX522_.jpg' />
+                    </a>
+                    <div className='productDetails'>
+                    <a href='http://amzn.to/2yOSw95'>
+                   <p className='viewButton'>View</p>
+                   </a>
+                    <p>$16.99</p>
+                    </div>
+                    </div>
+
+                    <div className='productBox'>
+                    <a href='http://amzn.to/2y6dhzo'>
+                    <img className='productImage' src='https://images-na.ssl-images-amazon.com/images/I/71R0TIVI3oL._UX522_.jpg' />
+                    </a>
+                    <div className='productDetails'>
+                    <a href='http://amzn.to/2y6dhzo'>
+                   <p className='viewButton'>View</p>
+                   </a>
+                    <p>$15.99</p>
+                    </div>
+                    </div>
+
+                    <div className='productBox'>
+                    <a href='http://amzn.to/2xmN5BM'>
+                    <img className='productImage' src='https://images-na.ssl-images-amazon.com/images/I/71bmJ6aHpzL._UX522_.jpg' />
+                    </a>
+                    <div className='productDetails'>
+                    <a href='http://amzn.to/2xmN5BM'>
+                   <p className='viewButton'>View</p>
+                   </a>
+                    <p>$14.99</p>
+                    </div>
+                    </div>
+
+                    <div className='productBox'>
+                    <a href='http://amzn.to/2z41qjU'>
+                    <img className='productImage' src='https://images-na.ssl-images-amazon.com/images/I/61LIWI0TQNL._UX522_.jpg' />
+                    </a>
+                    <div className='productDetails'>
+                    <a href='http://amzn.to/2z41qjU'>
+                   <p className='viewButton'>View</p>
+                   </a>
+                    <p>$14.99</p>
                     </div>
                     </div>
 
                     
-
+                
                     <div className='productBox'>
                     <a href='https://www.amazon.com/gp/product/B0756VQT1X/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B0756VQT1X&linkId=0e0989dc4695751fd16cf83d5cbb228c'>
                     <img className='productImage' src='https://images-na.ssl-images-amazon.com/images/I/81JNbt6EOLL._UX385_.jpg' />
@@ -112,7 +160,7 @@ class Storefront extends Component {
                     <a href='https://www.amazon.com/gp/product/B0756VQT1X/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B0756VQT1X&linkId=0e0989dc4695751fd16cf83d5cbb228c'>    
                    <p className='viewButton'>View</p>
                    </a>
-                    <p>$9.99</p>
+                    <p>$19.99</p>
                     </div>
                     </div>
 
@@ -126,7 +174,7 @@ class Storefront extends Component {
                     <a href='https://www.amazon.com/gp/product/B073YQXCQ9/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B073YQXCQ9&linkId=63eae91886ffe2982b456a29c83eb5f1'>
                    <p className='viewButton'>View</p>
                    </a>
-                    <p>$9.99</p>
+                    <p>$17.99</p>
                     </div>
                     </div>
 
@@ -138,7 +186,7 @@ class Storefront extends Component {
                     <a href='https://www.amazon.com/gp/product/B018N0G480/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B018N0G480&linkId=04ae1184d927beb67ce89b3ddcc88d59'>
                    <p className='viewButton'>View</p>
                    </a>
-                    <p>$9.99</p>
+                    <p>$21.99</p>
                     </div>
                     </div>
 
@@ -150,7 +198,7 @@ class Storefront extends Component {
                     <a href='https://www.amazon.com/gp/product/B018F6DNF4/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B018F6DNF4&linkId=d4c4d9da2e0b57f42accf858439acc19'>
                    <p className='viewButton'>View</p>
                    </a>
-                    <p>$9.99</p>
+                    <p>$21.99</p>
                     </div>
                     </div>
 
@@ -162,7 +210,7 @@ class Storefront extends Component {
                     <a href='https://www.amazon.com/gp/product/B019G64CPC/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B019G64CPC&linkId=61594c799206c5f5dd097fc4ec1092f8'>
                    <p className='viewButton'>View</p>
                    </a>
-                    <p>$9.99</p>
+                    <p>$49.99</p>
                     </div>
                     </div>
 
@@ -174,7 +222,7 @@ class Storefront extends Component {
                     <a href='https://www.amazon.com/gp/product/B074119FF2/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B074119FF2&linkId=5608e3d30aadf75cea6d90aa127a52eb'>
                    <p className='viewButton'>View</p>
                    </a>
-                    <p>$9.99</p>
+                    <p>$17.99</p>
                     </div>
                     </div>
 
@@ -186,7 +234,7 @@ class Storefront extends Component {
                     <a href='https://www.amazon.com/gp/product/B0751BFVY1/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B0751BFVY1&linkId=d4c3add82d247bc0d19be7a4f11f1e31'>
                    <p className='viewButton'>View</p>
                    </a>
-                    <p>$9.99</p>
+                    <p>$30.99</p>
                     </div>
                     </div>
                     
@@ -215,7 +263,7 @@ class Storefront extends Component {
                     <a href='https://www.amazon.com/gp/product/0470178116/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0470178116&linkId=cc48e67bd7641709094b73278fe957d6'>
                    <p className='viewButton'>View</p>
                    </a>
-                    <p>$8.75</p>
+                    <p>$14.54</p>
                     </div>
                     </div>
 
@@ -252,7 +300,7 @@ class Storefront extends Component {
                     <a href='https://www.amazon.com/gp/product/0297640860/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0297640860&linkId=0c15851eada15c1ba356f0db98b01b2f'>
                    <p className='viewButton'>View</p>
                    </a>
-                    <p>$8.61</p>
+                    <p>$12.99</p>
                     </div>
                     </div>
 
@@ -276,7 +324,7 @@ class Storefront extends Component {
                     <a href='https://www.amazon.com/gp/product/B01HJ64RRO/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B01HJ64RRO&linkId=8a47daa9b5633fda78a0533899bea45e'>
                    <p className='viewButton'>View</p>
                    </a>
-                    <p>$9.99</p>
+                    <p>$13.00</p>
                     </div>
                     </div>
 
@@ -288,7 +336,7 @@ class Storefront extends Component {
                     <a href='https://www.amazon.com/gp/product/1119315646/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1119315646&linkId=a2af57a54655ec9868276dfec60878c6'>
                    <p className='viewButton'>View</p>
                    </a>
-                    <p>$9.99</p>
+                    <p>$15.63</p>
                     </div>
                     </div>
 
@@ -300,7 +348,7 @@ class Storefront extends Component {
                     <a href='https://www.amazon.com/gp/product/B01NCTU8B9/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B01NCTU8B9&linkId=a2846d5b805fbce889903406e7fec9fa'>
                    <p className='viewButton'>View</p>
                    </a>
-                    <p>$9.99</p>
+                    <p>$22.99</p>
                     </div>
                     </div>
 
@@ -312,7 +360,7 @@ class Storefront extends Component {
                     <a href='https://www.amazon.com/gp/product/B013G5ZCIU/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B013G5ZCIU&linkId=885fbbb8e7539f91c818ae25f8ad9def'>   
                    <p className='viewButton'>View</p>
                    </a>
-                    <p>$9.99</p>
+                    <p>$13.99</p>
                     </div>
                     </div>
 
@@ -324,7 +372,7 @@ class Storefront extends Component {
                     <a href='https://www.amazon.com/gp/product/B00CBOAVXY/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B00CBOAVXY&linkId=2bd90a7dc96fd98a2b9a3f81400d081e'>
                    <p className='viewButton'>View</p>
                    </a>
-                    <p>$9.99</p>
+                    <p>$25.95</p>
                     </div>
                     </div>
 
@@ -336,7 +384,7 @@ class Storefront extends Component {
                     <a href='https://www.amazon.com/gp/product/B00PGDXBRA/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B00PGDXBRA&linkId=45608dcdc3e2fc45b7d015abc3203b41'>
                    <p className='viewButton'>View</p>
                    </a>
-                    <p>$9.99</p>
+                    <p>$6.45</p>
                     </div>
                     </div>
 

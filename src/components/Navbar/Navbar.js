@@ -14,7 +14,7 @@ class Navbar extends Component {
                     <div className='navLinks'>
                     <div className='logoBox'>
                     <Link to='/'>
-                    <div>Logo</div>
+                    <div className='logoText'>Logo</div>
                     </Link>
                  </div>
 

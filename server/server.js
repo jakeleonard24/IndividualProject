@@ -102,7 +102,7 @@ passport.use( new Auth0Strategy({
     })
 
     app.get('/api/news', (req, res) => {
-        axios.get('https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=type+1+diabetes&count=4&mkt=en-us',
+        axios.get('https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=type+1+diabetes&count=6&mkt=en-us',
         {'headers': {'Ocp-Apim-Subscription-Key': process.env.BING_KEY}})
         .then(response => {
             res.send(response.data)
@@ -110,7 +110,7 @@ passport.use( new Auth0Strategy({
     })
 
     app.get('/api/news2', (req, res) => {
-        axios.get('https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=kids+with+type+1&count=5&mkt=en-us',
+        axios.get('https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=kids+type+1+diabetes&count=10&mkt=en-us',
         {'headers': {'Ocp-Apim-Subscription-Key': process.env.BING_KEY}})
         .then(response => {
             res.send(response.data)

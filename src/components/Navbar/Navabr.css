@@ -5,8 +5,11 @@
     top: 0;
     left: 0;
     position: fixed;
-    background: #17A8E1;
+    background: #7D1935;
+ 
 }
+
+
 
 .logoBox{
     border: 1px solid black;
@@ -17,20 +20,25 @@
 	flex-wrap: nowrap;
 	justify-content: center;
 	align-items: center;
-	align-content: center;
+    align-content: center;
+    
 }
-
+.logoText{
+    color: #4A96AD;
+}
 .shopBox{
-
+    color: #4A96AD;
     border: 1px solid black;
 }
 
 .aboutBox{
     border: 1px solid black;
+    color: #4A96AD;
 }
 
 .blogBox{
     border: 1px solid black;
+    color: #4A96AD;
 }
 
 .navLinks{
@@ -40,5 +48,6 @@
 	justify-content: flex-end;
 	align-items: center;
 	align-content: center;
-
+    
 }
+
