@@ -4,6 +4,7 @@ import axios from 'axios';
 import './News.css';
 import Footer from '../Footer/Footer'
 import Iframe from 'react-iframe';
+import Navbar from '../Navbar/Navbar';
 
 
 class News extends Component {
@@ -122,6 +123,8 @@ class News extends Component {
         })
         
         return (
+            <div>
+            <Navbar />
             <div className='newsBody'>
                
                
@@ -349,6 +352,7 @@ Thousands filled the streets of downtown St. Louis Sunday morning, with one goal
                 
             
                 <Footer />
+            </div>
             </div>
         );
     }

@@ -1,5 +1,5 @@
 .blogBackground{
-    background-color: #F5F3EE;
+    background-color: #FFFFFF;
 }
 
 .blogHeader{
@@ -42,6 +42,7 @@
 	align-items: stretch;
     align-content: stretch;
     overflow: hidden;
+    background-color: #36382E;
   
     
 }
@@ -79,12 +80,12 @@
   
     transition: .73s;
    max-height: 250px;
-   background-color: #FFFFFF;
+   background-color: #F6F3F3;
   }
 
    
   .blogMain li:hover {
-    background: #FFFFFF;
+    background: rgb(255, 255, 255);
     cursor: pointer;
   } 
 
@@ -133,12 +134,12 @@
 
 .blogRightUserBox{
     width: 100%;
-    background: #E0F0F4;
+    background: #36382E;
     display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: flex-start;
+	justify-content: center;
+	align-items: center;
 	align-content: flex-start;
 }
 
@@ -151,12 +152,28 @@
     height: 200px;
 }
 
+.blogRightImage:hover{
+    cursor: pointer;
+}
+
+.blogRightAddPostButton:hover{
+    cursor: pointer;
+    background-color: #9DE3FD
+}
+.blogRightImageBox{
+    margin-top: 10px;
+    
+}
+
 .blogRightUserInfo{
     padding: 5px;
+    margin-top: 10px;
+    color:#5BC3EB;
+    font-weight: bold;
 }
 .blogRightAddPostButton{
     margin-bottom: 5px;
-    background-color: #4A96AD;
+    background-color: #5BC3EB;
     border: none;
     color: white;
     padding: 9px 45px;
@@ -164,10 +181,12 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    transition: .5s;
    
 }
 
 .addPostBox{
+    margin-top: 10px;
     width: 100%;
     display: flex;
 	flex-direction: column;
@@ -203,11 +222,11 @@
     rgba(0, 0, 0, 0.2);
 }
  .blogTitle h3{
-     border-bottom: 1px solid #4A96AD
+     border-bottom: 1px solid #5BC3EB
  }
 
 .blogTitle{
-    border-bottom: 1px solid #4A96AD;
+    border-bottom: 1px solid #5BC3EB;
 }
 
 .addCommentBox{
@@ -269,15 +288,59 @@
 }
 
 .addCommentButton{
+    margin-top: 10px;
     height: 47px;
     padding: 9px 45px;
     text-align: center;
     text-decoration: none;
-    background-color: #4A96AD;
+    background-color: #6E44FF;
     color: white;
 
 }
 
 .addCommentButton:hover{
     cursor: pointer;
+}
+
+.editProfileBox{
+    width:700px;
+    height: 800px;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: flex-start;
+ 
+}
+
+.editProfileTextAreaBox{
+width: 80%;
+height: 30%;
+margin-top: 10px;
+}
+
+.editProfileTextArea{
+    width:100%;
+    height: 100%;
+}
+
+.editProfileImageBox{
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: flex-start;
+}
+
+.fileInput{
+    align-content: center;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+    align-content: flex-start;
+    margin-left: 20px;
 }

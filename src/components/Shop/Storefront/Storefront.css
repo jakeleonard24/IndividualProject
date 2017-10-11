@@ -1,7 +1,7 @@
 a:link, a:visited { color: black; text-decoration: none; font-weight: bold;} 
 /* a:active, a:hover { color: black;  font-size: 25px;} */
  .storeBody{
-   background: #F5F3EE
+   background: #E8E1EF
  }
 
  @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
@@ -26,7 +26,14 @@ background-repeat: no-repeat;
   font-size: 100px;
   letter-spacing: 6px;
   margin-bottom: -10px;
+  margin-top: 7px;
   background: rgba(0, 0, 0, 0.2);
+  width: 100%;
+    
+}
+
+.storeHeaderContent{
+  width: 100%;
 }
 
 .productContainer{
@@ -34,7 +41,7 @@ background-repeat: no-repeat;
    
     width: 72%;
     margin: 0 auto;
-    overflow: auto;
+    overflow: hidden;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -56,9 +63,9 @@ background-repeat: no-repeat;
 
 
 .productBox{
-  width: 25%;
-  height: 420px;
-  margin-bottom: 15px;
+  width: 24%;
+  height: 295px;
+  margin-bottom: 20px;
   padding-top: 20px;
   display: flex;
 	flex-direction: column;
@@ -67,11 +74,14 @@ background-repeat: no-repeat;
 	align-items: center;
 	align-content: flex-start;
   transition: 1s;
+  margin-right: 8px;
+  background: #FFFFFF
 }
  
 
 .productImage{
-    width: 75%;
+    height: 250px;
+    width: auto;
   }
 
   .productDetails{
@@ -89,11 +99,11 @@ background-repeat: no-repeat;
   .viewButton {
 
     padding: 5px;
-    border-radius: 30%;
     transition: .73s;
   }
 
   .viewButton:hover {
-    background: 	#4A96AD;
-
+   
+    color: #5BC3EB;
+    font-size: 18px;
   }

@@ -7,6 +7,11 @@ const express = require('express')
 , Auth0Strategy = require('passport-auth0')
 , cors = require('cors')
 , axios = require('axios')
+, multer = require('multer')
+, AWS = require('aws-sdk')
+, upload = multer({dest: 'uploads/'})
+
+
 
 const app = express();
 app.use(bodyParser.json());
@@ -73,6 +78,25 @@ passport.use( new Auth0Strategy({
                 done(null, user[0])
         })
     })
+
+    const storage = multer.diskStorage({
+       
+        filename(req, file, cb) {
+            cb(null, `${new Date()}-${file.originalname}`)
+        },
+    });
+
+    // const profile = multer({storage});
+    var type = upload.single('file')
+
+    app.post('/profile', type, (req, res, next) => {
+            console.log(req.body, 'Body')
+            console.log(req.file)
+            res.json(req.file)
+            
+            
+    });
+
     app.get('/auth', passport.authenticate('auth0'));
     app.get('/auth/callback', passport.authenticate('auth0',{
         successRedirect: 'http://localhost:3000/#/blog',
@@ -137,7 +161,6 @@ passport.use( new Auth0Strategy({
             res.status(200).json(req.body)
         })
     })
-
 
     app.get('/api/user', (req, res)=> {
         

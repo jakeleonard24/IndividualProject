@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import Iframe from 'react-iframe';
 import './Storefront.css';
+import {Parallax} from 'react-parallax';
+import Navbar from '../../Navbar/Navbar';
 
 class Storefront extends Component {
     constructor(){
@@ -17,6 +19,8 @@ class Storefront extends Component {
        
         return (
             <div className='storeBody'>
+                <Navbar />
+              
                <div className='storeHeader'>
                    <div className='storeHeaderContent'>
                     <h1 className='storeHeaderText'>WEAR IT</h1>
@@ -25,7 +29,7 @@ class Storefront extends Component {
                    </div>
 
                </div>
-
+             
 
                 
                 <div className='productContainer'>
@@ -36,7 +40,7 @@ class Storefront extends Component {
                     
 
                     
-
+                
                     <div className='productBox'>
                     <a href='https://www.amazon.com/gp/product/B073N2W37J/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B073N2W37J&linkId=05862e5809ef26afaaeb94b43a0bf421'>
                     <img className='productImage' src='https://images-na.ssl-images-amazon.com/images/I/81oMSsBDb7L._UX522_.jpg' />

@@ -7,6 +7,7 @@ import axios from 'axios';
 import Modal from 'react-modal';
 import Blogs from '../newcomponent';
 import Footer from '../Footer/Footer.js';
+import Navbar from '../Navbar/Navbar';
 
 
 
@@ -34,12 +35,14 @@ class Blog extends Component {
             blog: '',
             date: '',
             modalIsOpen: false,
+            modal2IsOpen: false,
             blogs: [],
             isOpened: false,
             blogOpener:[],
             blogId: 0,
             comment: '',
-            comments: []
+            comments: [],
+            aboutMe: ''
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleClick = this.handleClick.bind(this)
@@ -53,6 +56,14 @@ class Blog extends Component {
         this.getUserBlogs = this.getUserBlogs.bind(this);
         this.addComment = this.addComment.bind(this);
         this.updateComment = this.updateComment.bind(this);
+        this.openModal2 = this.openModal2.bind(this);
+        this.afterOpenModal2 = this.afterOpenModal2.bind(this);
+        this.closeModal2 = this.closeModal2.bind(this);
+        this.updateAboutMe = this.updateAboutMe.bind(this);
+        this.updateUsername = this.updateUsername.bind(this);
+        this.updateEmail = this.updateEmail.bind(this);
+        this.updateImage = this.updateImage.bind(this);
+        this.handleFileUpload = this.handleFileUpload.bind(this);
         
         
     }
@@ -109,6 +120,50 @@ class Blog extends Component {
         })
     }
 
+    updateAboutMe(input){
+        this.setState({aboutMe: input})
+    }
+
+    updateUsername(input){
+        this.setState({username: input})
+    }
+
+    updateEmail(input){
+        this.setState({email: input})
+    }
+
+    uploadSuccess({data}){
+        this.setState({
+            image: data.file
+        })
+    }
+
+
+
+   updateImage({file}){
+       console.log('file', file)
+        let data = new FormData();
+        data.append('key', 'value')
+        data.append('file', file);
+        console.log(data, 'data')
+       
+
+        axios.post('/profile', data)
+        .then(response => this.uploadSuccess(response))
+        .catch(error => console.log(error))
+    }
+    handleFileUpload(event){
+       
+        console.log(event.target.files)
+        console.log(this.state)
+        const file = event.target.files[0]
+        console.log('file', file)
+        
+        this.updateImage({file})
+    }
+
+ 
+
     handleChange(value) {
         console.log('handle change', value)
         this.setState({blog: value})
@@ -154,13 +209,25 @@ class Blog extends Component {
         
       }
 
+      openModal2(){
+          this.setState({modal2IsOpen: true})
+      }
+
     afterOpenModal() {
         // references are now sync'd and can be accessed.
-        this.subtitle.style.color = 'blue';
+        this.subtitle.style.color = '#5BC3EB';
+      }
+
+      afterOpenModal2(){
+        this.subtitle.style.color = '#5BC3EB'
       }
 
       closeModal() {
         this.setState({modalIsOpen: false});
+      }
+
+      closeModal2(){
+          this.setState({modal2IsOpen: false});
       }
 
     addBlogPost(){
@@ -190,7 +257,7 @@ class Blog extends Component {
 
     style = {
         maxHeight: '1500px',
-        backgroundColor: '#FFFFFF',
+        backgroundColor: 'rgb(255, 255, 255)',
         border: '3px solid #F5F3EE',
         overflow: 'auto'
     }
@@ -267,6 +334,8 @@ class Blog extends Component {
         })
 
         return (
+            <div>
+            <Navbar userId={this.state.userId} username={this.state.username} />
             <div className='blogBackground'>
                <div className='blogHeader'>
                   <img className='blogHeaderImage' src='http://www.iddad.org/wp-content/uploads/2016/07/Submit-Your-Story-Header.png'/>
@@ -285,8 +354,8 @@ class Blog extends Component {
                         
                         
 
-                        <div>
-                            <img className='blogRightImage' src={this.state.image ? this.state.image : 'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
+                        <div className='blogRightImageBox'>
+                            <img onClick={this.openModal2} className='blogRightImage' src={this.state.image ? this.state.image : 'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
                         </div>
 
                     <div className='blogRightUserInfo'>
@@ -335,7 +404,52 @@ class Blog extends Component {
                 <button className="bottomEditor" onClick={this.closeModal} onClick={this.setDate} onClick={this.addBlogPost}>Submit</button>
           </form> 
         </Modal>
+        <Modal
+            
+            isOpen={this.state.modal2IsOpen}
+            onAfterOpen={this.afterOpenModal2}
+            onRequestClose={this.closeModal2}
+            style={customStyles}
+            contentLabel="Example Modal"
+            aboutMe={this.state.aboutMe}
+            updateAboutMe={this.updateAboutMe}
+            username={this.state.username}
+            email={this.state.email}
+            image={this.state.image}
+            updateUsername={this.updateUsername}
+            updateEmail={this.updateEmail}
+            updateImage={this.updateImage}
+            >
+            <div className='editProfileBox'>
+                <div>
+                <h2 ref={subtitle => this.subtitle = subtitle}>Edit Profile</h2>
+                </div>
+
+                <div className='editProfileImageBox'>
+                    <img src={this.state.image ? this.state.image : 'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
+                    <div className='fileInput'>
+                    <input  type='file' name='userImage' onChange={this.handleFileUpload}/>
+                    </div>
+                </div>
+
+                <div>
+                    <p>Username:</p><input placeholder={this.state.username}/>
+                </div>
+
+                <div>
+                    <p>Email:</p><input placeholder={this.state.email} />
+                </div>
+
+                <div className='editProfileTextAreaBox' >
+                    <p>About Me:</p><textarea placeholder='Tell Us About You...' className='editProfileTextArea'></textarea>
+                </div>
+            </div>
+
+            </Modal>
+
+
                 <Footer />
+            </div>
             </div>
         );
     }
