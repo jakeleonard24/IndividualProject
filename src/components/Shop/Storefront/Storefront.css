@@ -75,13 +75,15 @@ background-repeat: no-repeat;
 	align-content: flex-start;
   transition: 1s;
   margin-right: 8px;
-  background: #FFFFFF
+  background: #FFFFFF;
+  overflow: hidden;
 }
  
 
 .productImage{
     height: 250px;
     width: auto;
+    transition: .73s;
   }
 
   .productDetails{

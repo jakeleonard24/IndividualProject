@@ -104,7 +104,7 @@ passport.use( new Auth0Strategy({
       }))
       app.get('/auth/logout', (req,res) => {
         req.logOut();
-        res.redirect(302, 'http://localhost:3000/#/blog')
+        res.redirect(302, `https:${process.env.AUTH_DOMAIN}/v2/logout?returnTo=http://localhost:3000/#/blog`)
     })
 
     app.get('/api/blogs', (req,res) => {
@@ -125,8 +125,16 @@ passport.use( new Auth0Strategy({
         }).catch((err) => {console.log(err)})
     })
 
+    app.get('/api/userprofile/:id', (req, res) =>{
+        console.log(req.params)
+        let {id} = req.params;
+        req.app.get('db').get_user_profile([id]).then(user => {
+            res.status(200).send(user)
+        }).catch((err) => {console.log(err)})
+    })
+
     app.get('/api/news', (req, res) => {
-        axios.get('https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=type+1+diabetes&count=6&mkt=en-us',
+        axios.get('https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=type+1+diabetes&count=9&mkt=en-us',
         {'headers': {'Ocp-Apim-Subscription-Key': process.env.BING_KEY}})
         .then(response => {
             res.send(response.data)
@@ -134,7 +142,7 @@ passport.use( new Auth0Strategy({
     })
 
     app.get('/api/news2', (req, res) => {
-        axios.get('https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=kids+type+1+diabetes&count=10&mkt=en-us',
+        axios.get('https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=kids+type+1+diabetes&count=15&mkt=en-us',
         {'headers': {'Ocp-Apim-Subscription-Key': process.env.BING_KEY}})
         .then(response => {
             res.send(response.data)
@@ -162,9 +170,26 @@ passport.use( new Auth0Strategy({
         })
     })
 
+    app.post('/api/delete', (req, res) => {
+        console.log('endpoint hit', req.body)
+
+        let{blogId} = req.body;
+        req.app.get('db').delete_blog([blogId]).then(blogs =>{
+            res.status(200).json(req.body)
+        })
+    })
+
     app.get('/api/user', (req, res)=> {
         
         res.send(req.user)
+    })
+
+    app.post('/api/updateuser', (req, res) => {
+        console.log('update user hit', req.body)
+        let{username, email, image, aboutMe, userId} = req.body;
+        req.app.get('db').update_user([username, email, image, aboutMe, userId]).then(users => {
+            res.status(200).json(req.body)
+        })
     })
 
     

@@ -36,13 +36,19 @@ class Blog extends Component {
             date: '',
             modalIsOpen: false,
             modal2IsOpen: false,
+            modal3isOpen: false,
             blogs: [],
             isOpened: false,
             blogOpener:[],
             blogId: 0,
             comment: '',
             comments: [],
-            aboutMe: ''
+            aboutMe: '',
+            selectedBlogUserId: 0,
+            selectedBlogId: 0,
+            userPostSelected: false,
+            deleteClicked: false,
+            userProfileInfo: ['']
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleClick = this.handleClick.bind(this)
@@ -64,7 +70,13 @@ class Blog extends Component {
         this.updateEmail = this.updateEmail.bind(this);
         this.updateImage = this.updateImage.bind(this);
         this.handleFileUpload = this.handleFileUpload.bind(this);
-        
+        this.deleteAuthorizer = this.deleteAuthorizer.bind(this);
+        this.deleteBlog = this.deleteBlog.bind(this);
+        this.deleteClicker = this.deleteClicker.bind(this);
+        this.updateUser = this.updateUser.bind(this);
+        this.openModal3 = this.openModal3.bind(this);
+        this.afterOpenModal3 = this.afterOpenModal3.bind(this);
+        this.closeModal3 = this.closeModal3.bind(this);
         
     }
 
@@ -87,7 +99,8 @@ class Blog extends Component {
                 userId: response.data.id,
                 username: response.data.username,
                 email: response.data.email,
-                image: response.data.image
+                image: response.data.image,
+                aboutMe: response.data.aboutme
 
             })
         })
@@ -213,6 +226,10 @@ class Blog extends Component {
           this.setState({modal2IsOpen: true})
       }
 
+      openModal3(){
+          this.setState({modal3isOpen: true})
+      }
+
     afterOpenModal() {
         // references are now sync'd and can be accessed.
         this.subtitle.style.color = '#5BC3EB';
@@ -222,13 +239,40 @@ class Blog extends Component {
         this.subtitle.style.color = '#5BC3EB'
       }
 
+      afterOpenModal3(){
+        this.subtitle.style.color = '#5BC3EB'
+      }
+
       closeModal() {
         this.setState({modalIsOpen: false});
       }
 
       closeModal2(){
+          console.log('close modal ran')
           this.setState({modal2IsOpen: false});
       }
+      closeModal3(){
+          this.setState({modal3isOpen: false})
+      }
+
+      setSelectedId(userId, blogId){
+          for(var i = 0; i < this.state.blogOpener.length; i++){
+              if(this.state.blogOpener[i]){
+                return this.setState({
+                    selectedBlogUserId: userId,
+                    selectedBlogId: blogId
+                })
+              } else {
+                  this.setState({
+                      selectedBlogUserId: 0,
+                      selectedBlogId: 0
+                  })
+              }
+          }
+          
+      }
+
+
 
     addBlogPost(){
         axios.post('/api/newblog', {
@@ -241,6 +285,49 @@ class Blog extends Component {
         })
     }
 
+    updateUser(){
+        console.log('update user ran')
+        axios.post('/api/updateuser', {
+            username: this.state.username,
+            email: this.state.email,
+            image: this.state.image,
+            aboutMe: this.state.aboutMe,
+            userId: this.state.userId
+        })
+    }
+
+    deleteAuthorizer(){
+            if(this.state.userId == this.state.selectedBlogUserId){
+                this.setState({
+                    deleteClicked: !this.state.deleteClicked
+                })
+            } else {
+                alert("This Is Not Your Post To Delete")
+            }
+        }
+
+        deleteBlog(){
+            axios.post('/api/delete', {
+                blogId: this.state.selectedBlogId
+            })
+            this.deleteClicker()
+            
+        }
+
+    deleteClicker(){
+        this.setState({
+            deleteClicked: !this.state.deleteClicked
+        })
+    }
+    
+    getSelectedUser(id){
+        console.log(id)
+        axios.get('/api/userprofile/' + id).then(response => {
+            console.log(response, 'user info')
+            this.setState({userProfileInfo: response.data})
+        })
+    }
+
     addComment(){
         if(this.state.comment.length > 0){
         axios.post('/api/newcomment', {
@@ -249,8 +336,13 @@ class Blog extends Component {
             blogId: this.state.blogId,
             comment: this.state.comment,
             image: this.state.image
-        })
+        }).then(axios.get('/api/comments').then(response => {
 
+            this.setState({
+                comments: response.data
+            })
+        }))
+        
     }
     this.updateComment('')
     }
@@ -275,6 +367,15 @@ class Blog extends Component {
         backgroundColor: '#F5F3EE'
     }
 
+    deleteButtonGray= {
+        backgroundColor: '#dddddd'
+    }
+    deleteButtonRed={
+        backgroundColor: '#F06449'
+    }
+
+  
+
 
    
     render() {
@@ -294,15 +395,20 @@ class Blog extends Component {
             return(
                 
                 
-                <div key={i} className='blogAllContent'>
-                    <li onClick={()=> {this.changeHeight(i)}} style={this.state.blogOpener[i] ? this.style : this.style2} >
+                <div onClick={() => {this.setSelectedId(blog.userid, blog.blogid)}} key={i} className='blogAllContent'>
+                    <li 
+                         
+                        style={this.state.blogOpener[i] ? this.style : this.style2} >
 
-                         <div className='blogUserContainer'>
+                         <div onClick={() => {this.openModal3();  this.getSelectedUser(blog.userid) }} className='blogUserContainer'
+                         >
+                             
                               <img className='blogImage' src={blog.image ? blog.image : 'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
                         <p>{blog.username}</p>
                              </div>
                     
-                              <div className="blogTitle">
+                              <div onClick={()=> {this.changeHeight(i)}} className="blogTitle" className='tooltip'>
+                                  <span className="tooltiptext">Click To Expand</span>
                          <h3>{blog.title}</h3>
                       <p dangerouslySetInnerHTML={{__html: blog.blog}}></p> 
                     </div>
@@ -374,6 +480,20 @@ class Blog extends Component {
                         <div>
                             <button onClick={this.getUserBlogs} className='blogRightAddPostButton'>My Posts</button>
                         </div>
+
+                        <div >
+                            <button onClick={this.deleteAuthorizer} className={this.state.selectedBlogId ?'blogRightDeleteButton' : 'blogRightInactiveDelete'}>Delete Selected</button>
+                        </div>
+                        <div className={this.state.deleteClicked ? 'areYouSureBox' : 'noDisplay'}>
+                            <div>
+                                <h4 className='areYouSureText'>Are You Sure You Want To Delete?</h4>
+                            </div>
+                            <div className='areYouSureButtons'>
+                                <button onClick={this.deleteBlog}className='blogRightAddPostButton'>Yes</button>
+                                <button onClick={this.deleteClicker}className='blogRightAddPostButton'>No</button>
+
+                            </div>
+                        </div>
                         </div>
                     </div>
 
@@ -428,22 +548,45 @@ class Blog extends Component {
                 <div className='editProfileImageBox'>
                     <img src={this.state.image ? this.state.image : 'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
                     <div className='fileInput'>
-                    <input  type='file' name='userImage' onChange={this.handleFileUpload}/>
+                    <input  type='file' name='userImage' />
                     </div>
                 </div>
 
                 <div>
-                    <p>Username:</p><input placeholder={this.state.username}/>
+                    <p>Username:</p><input onChange={(e)=>{this.setState({username: e.target.value})}} placeholder={this.state.username}/>
                 </div>
 
                 <div>
-                    <p>Email:</p><input placeholder={this.state.email} />
+                    <p>Email:</p><input onChange={(e)=>{this.setState({email: e.target.value})}} placeholder={this.state.email} />
                 </div>
 
                 <div className='editProfileTextAreaBox' >
-                    <p>About Me:</p><textarea placeholder='Tell Us About You...' className='editProfileTextArea'></textarea>
+                    <p>About Me:</p><textarea onChange={(e)=>{this.setState({aboutMe: e.target.value})}} placeholder={this.state.aboutMe ? this.state.aboutMe : 'Tell Us About You...'}className='editProfileTextArea'></textarea>
+                </div>
+                <div>
+                    <button onClick={this.updateUser} className='blogRightAddPostButton'>Save Changes</button>
                 </div>
             </div>
+
+            </Modal>
+            <Modal   isOpen={this.state.modal3isOpen}
+                    onAfterOpen={this.afterOpenModal3}
+                    onRequestClose={this.closeModal3}
+                    style={customStyles}
+                    contentLabel="Example Modal">
+                    <div>
+                        <div>
+                            <h2 ref={subtitle => this.subtitle = subtitle}>Profile View</h2>
+                        </div>
+                        <div>
+                            <img src={this.state.userProfileInfo ? this.state.userProfileInfo[0].image : 'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
+                        </div>
+                        <div>
+                            <p>Bio:</p>
+                            <p>{this.state.userProfileInfo[0].aboutme}</p>
+                        </div>
+                    </div>
+
 
             </Modal>
 

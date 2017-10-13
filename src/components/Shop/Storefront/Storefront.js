@@ -9,7 +9,19 @@ class Storefront extends Component {
     constructor(){
         super()
 
+        this.state = {
+            mouseOverPink: false,
+            mouseOverGreen: false
+        }
+
+        this.mouseOver = this.mouseOver.bind(this)
         
+    }
+
+    mouseOver(){
+        this.setState({
+            mouseOverPink: !this.state.mouseOverPink
+        })
     }
 
     hoverStyle = {
@@ -40,6 +52,101 @@ class Storefront extends Component {
                     
 
                     
+                <div className='productBox'>
+                    <a href='http://amzn.to/2zkTJ95'>
+                    <img className='productImage' src='https://images-na.ssl-images-amazon.com/images/I/61UmSCnItML._UX679_.jpg' />
+                    </a>
+                    <div className='productDetails'>
+                    <a href='http://amzn.to/2zkTJ95'>
+                   <p className='viewButton'>View</p>
+                   </a>
+                    <p>$44.99</p>
+                    </div>
+                    </div>
+
+                    <div className='productBox'>
+                    <a href='http://amzn.to/2ggQIC4'>
+                    <img className='productImage' src='https://images-na.ssl-images-amazon.com/images/I/81JwuSk1uoL._UX679_.jpg' />
+                    </a>
+                    <div className='productDetails'>
+                    <a href='http://amzn.to/2ggQIC4'>
+                   <p className='viewButton'>View</p>
+                   </a>
+                    <p>$18.95</p>
+                    </div>
+                    </div>
+
+                    <div className='productBox'>
+                    <a href='http://amzn.to/2gfJcHw'>
+                    <img className='productImage' src='https://images-na.ssl-images-amazon.com/images/I/61V%2BRYegUzL._UX679_.jpg' />
+                    </a>
+                    <div className='productDetails'>
+                    <a href='http://amzn.to/2gfJcHw'>
+                   <p className='viewButton'>View</p>
+                   </a>
+                    <p>$29.99</p>
+                    </div>
+                    </div>
+
+                    <div className='productBox'>
+                    <a href='http://amzn.to/2zlWDdR'>
+                    <img className='productImage' src='https://images-na.ssl-images-amazon.com/images/I/613t4KVRRDL._UX679_.jpg' />
+                    </a>
+                    <div className='productDetails'>
+                    <a href='http://amzn.to/2zlWDdR'>
+                   <p className='viewButton'>View</p>
+                   </a>
+                    <p>$29.99</p>
+                    </div>
+                    </div>
+
+                    <div className='productBox'>
+                    <a href='http://amzn.to/2zlNge4'>
+                    <img className='productImage' src='https://images-na.ssl-images-amazon.com/images/I/71N-nGdMhFL._UX679_.jpg' />
+                    </a>
+                    <div className='productDetails'>
+                    <a href='http://amzn.to/2zlNge4'>
+                   <p className='viewButton'>View</p>
+                   </a>
+                    <p>$24.95</p>
+                    </div>
+                    </div>
+
+                    <div className='productBox'>
+                    <a href='http://amzn.to/2zm4YxN'>
+                    <img className='productImage' src='https://images-na.ssl-images-amazon.com/images/I/71LkvRhJAFL._UX679_.jpg' />
+                    </a>
+                    <div className='productDetails'>
+                    <a href='http://amzn.to/2zm4YxN'>
+                   <p className='viewButton'>View</p>
+                   </a>
+                    <p>$24.95</p>
+                    </div>
+                    </div>
+
+                    <div className='productBox'>
+                    <a href='http://amzn.to/2ggM6Mi'>
+                    <img className='productImage' src='https://images-na.ssl-images-amazon.com/images/I/61QvIqjmuUL._UY695_.jpg' />
+                    </a>
+                    <div className='productDetails'>
+                    <a href='http://amzn.to/2ggM6Mi'>
+                   <p className='viewButton'>View</p>
+                   </a>
+                    <p>$59.99</p>
+                    </div>
+                    </div>
+
+                    <div className='productBox'>
+                    <a href='http://amzn.to/2hEAoYe'>
+                    <img className='productImage' src='https://images-na.ssl-images-amazon.com/images/I/71-vOjoVzGL._UX679_.jpg' />
+                    </a>
+                    <div className='productDetails'>
+                    <a href='http://amzn.to/2hEAoYe'>
+                   <p className='viewButton'>View</p>
+                   </a>
+                    <p>$15.99</p>
+                    </div>
+                    </div>
                 
                     <div className='productBox'>
                     <a href='https://www.amazon.com/gp/product/B073N2W37J/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B073N2W37J&linkId=05862e5809ef26afaaeb94b43a0bf421'>
@@ -138,7 +245,64 @@ class Storefront extends Component {
                     <a href='http://amzn.to/2xmN5BM'>
                    <p className='viewButton'>View</p>
                    </a>
-                    <p>$14.99</p>
+                    <p>$40.37</p>
+                    </div>
+                    </div>
+
+                    <div className='productBox'>
+                    <a href='http://amzn.to/2yiJB0o'>
+                    <img className='productImage' src={this.state.mouseOverGreen ? 'https://images-na.ssl-images-amazon.com/images/I/71DmxXE%2B5xL._SX522_.jpg' : 'https://images-na.ssl-images-amazon.com/images/I/71TmCtmd7ZL._SX522_.jpg'} 
+                    onMouseOver={() => {this.setState({mouseOverGreen: true})}}
+                    onMouseOut={() => {this.setState({mouseOverGreen: false})}}/>
+                    </a>
+                    <div className='productDetails'>
+                    <a href='http://amzn.to/2yiJB0o'>
+                   <p className='viewButton'>View</p>
+                   </a>
+                    <p>$19.95</p>
+                    </div>
+                    </div>
+
+                    <div className='productBox'>
+                    <a href='http://amzn.to/2zl3XGv'>
+                    <img className='productImage' src={ this.state.mouseOverPink ? 'https://images-na.ssl-images-amazon.com/images/I/81pMMlnDfBL._SX522_.jpg' : 'https://images-na.ssl-images-amazon.com/images/I/815SkUHrb6L._SX522_.jpg'}
+                    onMouseOver={() => {this.setState({mouseOverPink: true})}}
+                    onMouseOut={() => {this.setState({mouseOverPink: false})}} />
+                    </a>
+                    <div className='productDetails'>
+                    <a href='http://amzn.to/2zl3XGv'>
+                   <p className='viewButton'>View</p>
+                   </a>
+                    <p>$42.95</p>
+                    </div>
+                    </div>
+
+                    <div className='productBox'>
+                    <a href='http://amzn.to/2ghRv5I'>
+                    <img className='productImage' src={this.state.mouseOverMen ? 'https://images-na.ssl-images-amazon.com/images/I/61bMtwlKOdL._SX522_.jpg' : 'https://images-na.ssl-images-amazon.com/images/I/61aVbCVVkQL._SX522_.jpg'} 
+                    onMouseOver={() => {this.setState({mouseOverMen: true})}}
+                    onMouseOut={() => {this.setState({mouseOverMen: false})}}/>
+                    </a>
+                    <div className='productDetails'>
+                    <a href='http://amzn.to/2ghRv5I'>
+                   <p className='viewButton'>View</p>
+                   </a>
+                    <p>$27.15</p>
+                    </div>
+                    </div>
+
+                    <div className='productBox'>
+                    <a href='http://amzn.to/2ghr9AP'>
+                    <img className='productImage' src={this.state.mouseOverPolka ?'https://images-na.ssl-images-amazon.com/images/I/51MQk7Hof3L.jpg' : 'https://images-na.ssl-images-amazon.com/images/I/51FvnTKmFFL.jpg'} 
+                    onMouseOver={() => {this.setState({mouseOverPolka: true})}}
+                    onMouseOut={() => {this.setState({mouseOverPolka: false})}}
+                    />
+                    </a>
+                    <div className='productDetails'>
+                    <a href='http://amzn.to/2ghr9AP'>
+                   <p className='viewButton'>View</p>
+                   </a>
+                    <p>$26.99</p>
                     </div>
                     </div>
 
@@ -150,7 +314,7 @@ class Storefront extends Component {
                     <a href='http://amzn.to/2z41qjU'>
                    <p className='viewButton'>View</p>
                    </a>
-                    <p>$14.99</p>
+                    <p>$40.37</p>
                     </div>
                     </div>
 
@@ -241,6 +405,7 @@ class Storefront extends Component {
                     <p>$30.99</p>
                     </div>
                     </div>
+
                     
                     <div className='productBox'>
                     <a href='https://www.amazon.com/gp/product/1514369729/ref=as_li_tl?ie=UTF8&tag=typeoneshop-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1514369729&linkId=5d268d807c1de7512ede96db2518cfae'>
