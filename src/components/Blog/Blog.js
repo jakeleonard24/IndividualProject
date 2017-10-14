@@ -77,6 +77,8 @@ class Blog extends Component {
         this.openModal3 = this.openModal3.bind(this);
         this.afterOpenModal3 = this.afterOpenModal3.bind(this);
         this.closeModal3 = this.closeModal3.bind(this);
+        this.updateBlog = this.updateBlog.bind(this);
+        this.getAllBlogs = this.getAllBlogs.bind(this);
         
     }
 
@@ -125,6 +127,19 @@ class Blog extends Component {
             
         })
     }
+
+    getAllBlogs(){
+        axios.get('/api/blogs').then(response => {
+            this.setState({
+                blogs: response.data,
+                blogOpener: response.data.map((elem) =>{
+                    return false
+                })
+                
+            })
+            
+        })
+    }
    
 
     logout(){
@@ -146,8 +161,9 @@ class Blog extends Component {
     }
 
     uploadSuccess({data}){
+        console.log('response data' ,data)
         this.setState({
-            image: data.file
+            image: './uploads/' + data.filename
         })
     }
 
@@ -166,14 +182,14 @@ class Blog extends Component {
         .catch(error => console.log(error))
     }
     handleFileUpload(event){
-       
-        console.log(event.target.files)
-        console.log(this.state)
-        const file = event.target.files[0]
-        console.log('file', file)
         
-        this.updateImage({file})
-    }
+         console.log(event.target.files)
+         console.log(this.state)
+         const file = event.target.files[0]
+         console.log('file', file)
+         
+         this.updateImage({file})
+     }
 
  
 
@@ -294,6 +310,17 @@ class Blog extends Component {
             aboutMe: this.state.aboutMe,
             userId: this.state.userId
         })
+    }
+
+    updateBlog(){
+        axios.post('/api/updateblog', {
+        blogImage: this.state.image,
+        userId: this.state.userId
+        })
+    }
+
+    update(){
+        axios.post('')
     }
 
     deleteAuthorizer(){
@@ -494,6 +521,7 @@ class Blog extends Component {
 
                             </div>
                         </div>
+                        
                         </div>
                     </div>
 
@@ -521,7 +549,7 @@ class Blog extends Component {
             <ReactQuill className='textEditor' theme="snow" value={this.state.blog}
                      onChange={this.handleChange} />
               
-                <button className="bottomEditor" onClick={this.closeModal} onClick={this.setDate} onClick={this.addBlogPost}>Submit</button>
+                <button className="bottomEditor" onClick={() => { this.setDate(); this.closeModal();this.addBlogPost(); this.getAllBlogs()}} >Submit</button>
           </form> 
         </Modal>
         <Modal
@@ -546,9 +574,9 @@ class Blog extends Component {
                 </div>
 
                 <div className='editProfileImageBox'>
-                    <img src={this.state.image ? this.state.image : 'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
+                    <img className='editProfileImage' src={this.state.image ? this.state.image : 'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
                     <div className='fileInput'>
-                    <input  type='file' name='userImage' />
+                    <input  type='file' name='userImage' onChange={this.handleFileUpload} />
                     </div>
                 </div>
 
@@ -564,7 +592,7 @@ class Blog extends Component {
                     <p>About Me:</p><textarea onChange={(e)=>{this.setState({aboutMe: e.target.value})}} placeholder={this.state.aboutMe ? this.state.aboutMe : 'Tell Us About You...'}className='editProfileTextArea'></textarea>
                 </div>
                 <div>
-                    <button onClick={this.updateUser} className='blogRightAddPostButton'>Save Changes</button>
+                    <button onClick={() => {this.updateUser(); this.updateBlog(); this.getAllBlogs(); this.closeModal2()}} className='blogRightAddPostButton'>Save Changes</button>
                 </div>
             </div>
 

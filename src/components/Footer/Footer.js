@@ -5,6 +5,9 @@ class Footer extends Component {
     render() {
         return (
             <div className='foot'>
+                <div className='contactBox'>
+
+                </div>
                 <div className='footer'>
 
                 </div>

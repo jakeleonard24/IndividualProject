@@ -9,7 +9,7 @@ const express = require('express')
 , axios = require('axios')
 , multer = require('multer')
 , AWS = require('aws-sdk')
-, upload = multer({dest: 'uploads/'})
+, upload = multer({dest: 'public/uploads/'})
 
 
 
@@ -81,17 +81,19 @@ passport.use( new Auth0Strategy({
 
     const storage = multer.diskStorage({
        
-        filename(req, file, cb) {
-            cb(null, `${new Date()}-${file.originalname}`)
-        },
-    });
+        filename: function (req, file, cb) {
+            let extArray = file.mimetype.split("/");
+            let extension = extArray[extArray.length - 1];
+            cb(null, file.fieldname + '-' + Date.now()+ '.' +extension)
+          }
+        })
 
     // const profile = multer({storage});
     var type = upload.single('file')
 
     app.post('/profile', type, (req, res, next) => {
             console.log(req.body, 'Body')
-            console.log(req.file)
+            console.log(req.file.originalname)
             res.json(req.file)
             
             
@@ -126,7 +128,7 @@ passport.use( new Auth0Strategy({
     })
 
     app.get('/api/userprofile/:id', (req, res) =>{
-        console.log(req.params)
+        
         let {id} = req.params;
         req.app.get('db').get_user_profile([id]).then(user => {
             res.status(200).send(user)
@@ -185,12 +187,23 @@ passport.use( new Auth0Strategy({
     })
 
     app.post('/api/updateuser', (req, res) => {
-        console.log('update user hit', req.body)
+        
         let{username, email, image, aboutMe, userId} = req.body;
         req.app.get('db').update_user([username, email, image, aboutMe, userId]).then(users => {
             res.status(200).json(req.body)
         })
     })
+
+    app.post('/api/updateblog', (req, res) => {
+        console.log('this ran')
+        console.log(req.body)
+        let{blogImage, userId} =req.body;
+        req.app.get('db').update_blog([blogImage, userId]).then(blogs => {
+            res.status(200).json(req.body)
+        })
+    })
+
+
 
     
 

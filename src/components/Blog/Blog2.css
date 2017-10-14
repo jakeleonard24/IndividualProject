@@ -150,13 +150,13 @@
 
 .blogRightUserBox{
     width: 100%;
-    background: #36382E;
     display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
 	justify-content: center;
 	align-items: center;
-	align-content: flex-start;
+    align-content: flex-start;
+   
 }
 
 .blogRightBox{
@@ -387,6 +387,11 @@ margin-top: 10px;
 	justify-content: center;
 	align-items: center;
 	align-content: flex-start;
+}
+
+.editProfileImage{
+    width: 200px;
+    height: 200px;
 }
 
 .fileInput{
