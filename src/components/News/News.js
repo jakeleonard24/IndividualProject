@@ -343,11 +343,7 @@ Thousands filled the streets of downtown St. Louis Sunday morning, with one goal
                  </div>
 
                     </div>
-                    <div className='aboutContainer'>
-                        <div>
-
-                        </div>
-                    </div>
+                   
                 
                 
             

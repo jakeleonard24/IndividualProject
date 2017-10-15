@@ -1,15 +1,258 @@
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab');
+
 .footer{
     width: 100%;
-    height: 600px;
-    opacity: 20%;
+    height: 800px;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: flex-start;
+    bottom: 0;
+    left: 0;
+    position: relative;
+    background-image: URL('https://lh3.googleusercontent.com/9bvjpHxJJfrV0D8CeuCDjtJlNU-skldUkDqBsbchW8A5ttuN2FKsx6Jr2UytCg78V14PILmDeTF1jyy3jUlub9GeiZGBel0hQ6FRb6VFeUCoo2Bu2yiRk_o1BAfEUL8ihj2QYtipbtn6zqfdTdh55u794c-jlyjegUEwh-NAuVS9nznDYyjvdc6SXsKR9E0bxYawFJWUkTw8hJNceb9qj51w_ZUFOpFrJvnI4MAC6OaOYWklF9Ewt00IrNgZ2wCG7-ToFqF8S481b-yf_xfiJREeldl-FN4ynpGpcOdesvJ5iIyujdzGNbPgeiLbN3TPoxEe-YSu3IIwDSIP2DGjB0pby9Uxc4QFTs_VlQDEh9GruHxzcHKXbRGP99oaHbDCdjjJA83tEVWLzEi1KbMPt_vHasg9DrxRebcFqtf7ETCIiAFdtd2TeuVYpICN9wuF7mddIzOz07Qqn4xbao4eI4s-F043KuVCWMflUSlZCWrhXtKWpxMr2pX2EL7C0AH2aZAgnjZtaf06Z9-GiMjrman7F8JJanVX2SrU49pfn7wiRSmxsLYC0e6VE_tItp7bfdGGfzQHl-l64BhXoq8jo7z-XtIT0h6s5RefR82gFGBJbjkl2G9mlV2uruo7sRM4u5gKFpkBUkfFGYcWfh_LFnmb0mxSxm1LD5o=w1902-h951-no')
+   
+}
+
+.contactBox{
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: flex-start;
+    
+    width: 50%;
+    height: 47%;
+}
+
+.messageBoxes{
+    display: flex;
+	flex-direction: row-reverse;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+    align-content: flex-start;
+    
+    margin-top: 12px;
+}
+
+.footerInputs{
+    height: 32px;
+    width: 180px;
+    margin: 6px;
+    border-radius: 8%;
+    font-family: 'Josefin Slab', serif;
+    font-size: 20px;
+}
+
+.sendMessageButton{
+    margin-bottom: 5px;
+    background-color: #5BC3EB;
+    border: none;
+    color: white;
+    padding: 18px 41px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 47px;
+    transition: .5s;
+    border-radius: 8%;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+.sendMessageButton:hover{
+    background-color: #9DE3FD;
+    cursor: pointer;
+}
+
+.footerTextArea{
+    padding: 8px;
+    height: 177px;
+    width: 367px;
+    border-radius: 8%;
+    font-family: 'Josefin Slab', serif;
+    font-size: 20px;
+}
+
+.messageBoxesLeft{
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+    align-content: flex-start;
+    
+}
+
+.messageText{
+    color: #87DDFF;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 60px;
+}
+
+.messageSubText{
+    font-family: 'Josefin Slab', serif;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    
+}
+
+.bottomFooter{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+    align-content: flex-start;
+    
+    width: 90%;
+    height: 40%;
+}
+
+.footerDonate{
+    /* width: 30%; */
     display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-    align-content: center;
-    bottom: 0;
-    left: 0;
-    position: relative;
-    background-image: URL('https://previews.123rf.com/images/thitarees/thitarees1608/thitarees160800042/61026682-Orange-Ribbons-on-toning-background-Leukemia-awareness-Self-Injury-Awareness-Day-Multiple-sclerosis--Stock-Photo.jpg')
+    align-content: flex-start;
+    
+}
+
+.footerDonateImage{
+    width: 220px;
+    height: 200px;
+}
+
+
+
+.donateTextAndButton{
+    width: 400px;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+    align-content: flex-start;
+    
+}
+.donateButton {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    background-color: #F06449;
+    border: none;
+    color: white;
+    padding: 16px 41px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 34px;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+    border-radius: 8%;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+.donateButton:hover{
+    background-color: #FA9986;
+    cursor: pointer;
+}
+
+
+.logoAndSuscribe{
+    height: 100%;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+    align-content: flex-start;
+    margin-left: 20px;
+    
+}
+
+.suscribeInputAndButton{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: flex-start;
+}
+
+.suscribeInput{
+    height: 40px;
+    width: 240px;
+    /* margin: 5px; */
+    border-radius: 8%;
+    font-family: 'Josefin Slab', serif;
+    font-size: 20px;
+}
+
+
+.suscribeButton{
+    
+    background-color: #F06449;
+    border: none;
+    color: white;
+    padding: 6px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 28px;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+    border-radius: 8%;
+    font-family: 'Luckiest Guy', cursive;
+    margin-top: 2px;
+}
+
+.suscribeButton:hover{
+    background-color: #FA9986;
+    cursor: pointer;
+}
+
+.socialMediaBox{
+    width: 30%;
+    
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content:center;
+}
+
+.followUsText{
+    color: #87DDFF;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 60px;
+}
+.socialMediaLogos{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+    align-content: flex-start;
+  
+    
+}
+.footerLogo{
+    transition: .73s;
+}
+.footerLogo:hover{
+  width: 55px;
+  height: 55px;
+  transition: .73s;
+  cursor: pointer;
+  
 }

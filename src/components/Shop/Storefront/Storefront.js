@@ -4,6 +4,7 @@ import Iframe from 'react-iframe';
 import './Storefront.css';
 import {Parallax} from 'react-parallax';
 import Navbar from '../../Navbar/Navbar';
+import Footer from '../../Footer/Footer'
 
 class Storefront extends Component {
     constructor(){
@@ -561,6 +562,7 @@ class Storefront extends Component {
 
                 
             </div>
+            <Footer />
             </div>
             
 

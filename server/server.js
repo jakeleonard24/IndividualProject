@@ -194,6 +194,14 @@ passport.use( new Auth0Strategy({
         })
     })
 
+    app.post('/api/messages', (req, res) => {
+        console.log('got message', req.body)
+        let{name, email, message} = req.body;
+        req.app.get('db').add_message([name, email, message]).then(message => {
+            res.status(200).json(req.body)
+        })
+    })
+
     app.post('/api/updateblog', (req, res) => {
         console.log('this ran')
         console.log(req.body)
