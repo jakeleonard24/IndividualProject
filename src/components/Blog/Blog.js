@@ -256,7 +256,7 @@ class Blog extends Component {
       }
 
       afterOpenModal3(){
-        this.subtitle.style.color = '#5BC3EB'
+        this.subtitle.style.color = 'white'
       }
 
       closeModal() {
@@ -446,7 +446,7 @@ class Blog extends Component {
                         if(comment.blognumber === blog.blogid){
                             return(
                                 <div className="userComment">
-                                <img className='blogImage' src={comment.image ? comment.image : 'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
+                                <img className='commentImage' src={comment.image ? comment.image : 'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
                                     <h3 className='commentUsername'>{comment.username ? comment.username + ': ' : "Guest: "}</h3>
                                    
                                     <p>{' ' + comment.comment}</p>
@@ -471,7 +471,15 @@ class Blog extends Component {
             <Navbar userId={this.state.userId} username={this.state.username} />
             <div className='blogBackground'>
                <div className='blogHeader'>
-                  <img className='blogHeaderImage' src='http://www.iddad.org/wp-content/uploads/2016/07/Submit-Your-Story-Header.png'/>
+                  <div className='blogHeaderContent'>
+                      <div>
+                          <h1 className='blogHeaderText'>READ OUR STORIES</h1>
+                      </div>
+                      <div>
+                          <h1 className='blogHeaderText'>SHARE YOURS</h1>
+                      </div>
+
+                  </div>
                    </div>
 
             <div className='blogBody'>
@@ -602,12 +610,12 @@ class Blog extends Component {
                     onRequestClose={this.closeModal3}
                     style={customStyles}
                     contentLabel="Example Modal">
-                    <div>
+                    <div className='bioModal'>
                         <div>
                             <h2 ref={subtitle => this.subtitle = subtitle}>Profile View</h2>
                         </div>
                         <div>
-                            <img src={this.state.userProfileInfo ? this.state.userProfileInfo[0].image : 'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
+                            <img className='bioImage' src={this.state.userProfileInfo ? this.state.userProfileInfo[0].image : 'http://vvcexpl.com/wordpress/wp-content/uploads/2013/09/profile-default-male.png'} />
                         </div>
                         <div>
                             <p>Bio:</p>

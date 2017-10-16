@@ -3,7 +3,7 @@
 
 .footer{
     width: 100%;
-    height: 800px;
+    height: 700px;
     display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
@@ -13,19 +13,20 @@
     bottom: 0;
     left: 0;
     position: relative;
-    background-image: URL('https://lh3.googleusercontent.com/9bvjpHxJJfrV0D8CeuCDjtJlNU-skldUkDqBsbchW8A5ttuN2FKsx6Jr2UytCg78V14PILmDeTF1jyy3jUlub9GeiZGBel0hQ6FRb6VFeUCoo2Bu2yiRk_o1BAfEUL8ihj2QYtipbtn6zqfdTdh55u794c-jlyjegUEwh-NAuVS9nznDYyjvdc6SXsKR9E0bxYawFJWUkTw8hJNceb9qj51w_ZUFOpFrJvnI4MAC6OaOYWklF9Ewt00IrNgZ2wCG7-ToFqF8S481b-yf_xfiJREeldl-FN4ynpGpcOdesvJ5iIyujdzGNbPgeiLbN3TPoxEe-YSu3IIwDSIP2DGjB0pby9Uxc4QFTs_VlQDEh9GruHxzcHKXbRGP99oaHbDCdjjJA83tEVWLzEi1KbMPt_vHasg9DrxRebcFqtf7ETCIiAFdtd2TeuVYpICN9wuF7mddIzOz07Qqn4xbao4eI4s-F043KuVCWMflUSlZCWrhXtKWpxMr2pX2EL7C0AH2aZAgnjZtaf06Z9-GiMjrman7F8JJanVX2SrU49pfn7wiRSmxsLYC0e6VE_tItp7bfdGGfzQHl-l64BhXoq8jo7z-XtIT0h6s5RefR82gFGBJbjkl2G9mlV2uruo7sRM4u5gKFpkBUkfFGYcWfh_LFnmb0mxSxm1LD5o=w1902-h951-no')
-   
+    background-image: URL('https://lh3.googleusercontent.com/9bvjpHxJJfrV0D8CeuCDjtJlNU-skldUkDqBsbchW8A5ttuN2FKsx6Jr2UytCg78V14PILmDeTF1jyy3jUlub9GeiZGBel0hQ6FRb6VFeUCoo2Bu2yiRk_o1BAfEUL8ihj2QYtipbtn6zqfdTdh55u794c-jlyjegUEwh-NAuVS9nznDYyjvdc6SXsKR9E0bxYawFJWUkTw8hJNceb9qj51w_ZUFOpFrJvnI4MAC6OaOYWklF9Ewt00IrNgZ2wCG7-ToFqF8S481b-yf_xfiJREeldl-FN4ynpGpcOdesvJ5iIyujdzGNbPgeiLbN3TPoxEe-YSu3IIwDSIP2DGjB0pby9Uxc4QFTs_VlQDEh9GruHxzcHKXbRGP99oaHbDCdjjJA83tEVWLzEi1KbMPt_vHasg9DrxRebcFqtf7ETCIiAFdtd2TeuVYpICN9wuF7mddIzOz07Qqn4xbao4eI4s-F043KuVCWMflUSlZCWrhXtKWpxMr2pX2EL7C0AH2aZAgnjZtaf06Z9-GiMjrman7F8JJanVX2SrU49pfn7wiRSmxsLYC0e6VE_tItp7bfdGGfzQHl-l64BhXoq8jo7z-XtIT0h6s5RefR82gFGBJbjkl2G9mlV2uruo7sRM4u5gKFpkBUkfFGYcWfh_LFnmb0mxSxm1LD5o=w1902-h951-no');
+    
 }
 
 .contactBox{
+    width: 80%;
     display: flex;
 	flex-direction: column;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	justify-content: flex-start;
 	align-items: center;
 	align-content: flex-start;
     
-    width: 50%;
+
     height: 47%;
 }
 
@@ -76,6 +77,7 @@
     border-radius: 8%;
     font-family: 'Josefin Slab', serif;
     font-size: 20px;
+    margin-right: 7px;
 }
 
 .messageBoxesLeft{
@@ -110,8 +112,9 @@
 	align-items: center;
     align-content: flex-start;
     
-    width: 90%;
+    width: 100%;
     height: 40%;
+    margin-bottom: -10px;
 }
 
 .footerDonate{

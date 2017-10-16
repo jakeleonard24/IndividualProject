@@ -1,7 +1,8 @@
 a:link, a:visited { color: black; text-decoration: none; font-weight: bold;} 
 /* a:active, a:hover { color: black;  font-size: 25px;} */
  .storeBody{
-   background: #E8E1EF
+   background: #E8E1EF;
+   /* background-image: url('https://lh3.googleusercontent.com/01nk3r0qn7aRO94bFLhALB6XAfO5fq-woCOXDpv2f_PYh7hgGP37qmcgI8FEshPkoTUNFMX5VH41FwuZeEmKFTeYdk7IacVAJbANuLGYZVUSmKEFvUSmm1_1TzWAV5b83dNfIrphB45BgVdazXY6ytjLwg9P7rQcnsCTynGCWOOxjgcf96sfLJbemlV6RiT8JQaOuO3a7LGt7V9gSxBNjWnYSK_CR07ciCsguL-Mvw2jOz7E1JIcs0ZsEdW1vQQBKelYbbpk-EY-kb-NypK00R-Iq3L7sj27l0h4PMCLKHrCqaa0DyguodI058-IFvL0mTv1E_ug8m_QtcLmw3eWgooAO7iSB91A0KN5Y-4UAiyG5MxAQDJKrG2bBwkuDiwDe--sI1ukceWIci65WlRSfnTpVWi-ySNgrPz8n2D6bPNUa1HOHO2SkFmhmWVz6Q2TyP30okyTwz_F6cNYYEgJykIE3-Y17Lqc2wkYqEppNoQiZxHTCK1LdXyWIzwVmWpLCETPiVWoXPor5lFgrPYGtyTnLXysNvY4DQFLyWPunJYudv-tGbhDL7kUYmsSe7GAoc-JjJiCCD0jVFRY2-qByD0rNrWUIw-cZ9Xco0J_QfQv_IYQuMxK3MM6dAxRjQ8HUbLyQNlbUHMzcKiO5d7P-HU5V1j6SoB9jqM=s400-no') */
  }
 
  @import url('https://fonts.googleapis.com/css?family=Indie+Flower');

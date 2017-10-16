@@ -70,8 +70,8 @@ class Footer extends Component {
 
                     <div className='logoAndSuscribe'>
 
-                    <div>
-                            <img className='footerDonateImage' src='https://lh3.googleusercontent.com/_TFVUjo8UWDMzJNTkcceJ0YiiovUjJP8BILgwwbcJ4hBv6-3fs7LN6vVxjirZExo1Suo6RaOCBwsUfKKQJ7Mn417Awl7Ah295u0bnJOEbsqIkvuAXpdjziftk5zXVGOkh9-5JMwZmJCLaaylik7yFpB74tS77rBFUU1du6uuC_ZgAKKBR4pxp2XRyL1DK16JKoPlu0J8sgztlia4CC-1fTIQisTJTsYUVdzEzBFyEfVg5Ac56oRPzpqTwnQto8lbGfMc7Dt9UDj4B95mH10O4_TCfdgKSdsrZCl3p2dT-MEP05hD6ES8GY64jb2BmeRc41E3qaE53g9zc0hxX-fYpzKvnuIi__F8DKiPSvIq6_GTD9zRJVW5DLj8_TRaSBX_Mick3o3UXswM-dD2FhfFQe96GGS2RZ1L-1otsD7wBMpVOGCtytJlzPGvkwPUZbOw7mkf47Pq__aXreAXOCMpKp0poephVCMW88FFZ45FD1vfxtZ-DSqzipDcGjiMkVTx4Rh9M1wJ540nNp-k33MqchgIATBVNZtZDg6s1YMny9xDDyvwWuDR-utH4Wc0dsnfxuhYMWzfB9t-tZfosKlpUUBiWOulUvAvj5R3427QwICNKcvYEFgPEFWeEiaica7Is1lg9zpv-nACu5EFz2Boi_f-4UnZVlehkI0=s500-no' />
+                        <div>
+                            <text className='messageSubText'>Interested in a monthly Email?</text>
                         </div>
 
                         <div className='suscribeInputAndButton'>
