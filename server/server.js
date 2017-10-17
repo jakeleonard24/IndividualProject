@@ -10,7 +10,7 @@ const express = require('express')
 , multer = require('multer')
 , AWS = require('aws-sdk')
 , upload = multer({dest: 'public/uploads/'})
-
+, path = require('path')
 
 
 const app = express();
@@ -23,6 +23,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cors());
+app.use(express.static(`${__dirname}/../build`))
 
 // massive connection
 massive(process.env.CONNECTION_STRING)
@@ -101,12 +102,12 @@ passport.use( new Auth0Strategy({
 
     app.get('/auth', passport.authenticate('auth0'));
     app.get('/auth/callback', passport.authenticate('auth0',{
-        successRedirect: 'http://localhost:3000/#/blog',
-        failureRedirect: '/auth'
+        successRedirect: process.env.SUCCESS_REDIRECT,
+        failureRedirect: process.env.FAILURE_REDIRECT
       }))
       app.get('/auth/logout', (req,res) => {
         req.logOut();
-        res.redirect(302, `https:${process.env.AUTH_DOMAIN}/v2/logout?returnTo=http://localhost:3000/#/blog`)
+        res.redirect(302, `https:${process.env.AUTH_DOMAIN}/v2/logout?returnTo=` + process.env.SUCCESS_REDIRECT)
     })
 
     app.get('/api/blogs', (req,res) => {
@@ -144,7 +145,7 @@ passport.use( new Auth0Strategy({
     })
 
     app.get('/api/news2', (req, res) => {
-        axios.get('https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=kids+type+1+diabetes&count=15&mkt=en-us',
+        axios.get('https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=kids+type+1+diabetes&count=20&mkt=en-us',
         {'headers': {'Ocp-Apim-Subscription-Key': process.env.BING_KEY}})
         .then(response => {
             res.send(response.data)
@@ -211,7 +212,9 @@ passport.use( new Auth0Strategy({
         })
     })
 
-
+    app.get('*', (req, res)=>{
+        res.sendFile(path.join(__dirname, '/../build/index.html'));
+      })
 
     
 

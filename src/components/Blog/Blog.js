@@ -382,7 +382,7 @@ class Blog extends Component {
     }
 
     style2 = {
-        maxHeight: '400px'
+        maxHeight: '600px'
     }
 
     commentStyle1= {

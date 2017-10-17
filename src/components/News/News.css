@@ -40,6 +40,7 @@ p{
 .articleContainer ul {
   list-style-type: none;
   width: 500px;
+  padding: 5px;
   
  
 }
@@ -215,7 +216,8 @@ p{
 	flex-wrap: nowrap;
 	justify-content: flex-start;
 	align-items: flex-start;
-	align-content: center;
+    align-content: center;
+    padding: 5px;
 }
 
 .news2VideoBox{
@@ -229,6 +231,8 @@ p{
     margin-bottom: 5px;
     border-top: 1px solid #3B73A5;
     transition: .73s;
+    padding: 7px;
+    text-align: center;
 }
 
 .news2VideoBox:hover{
